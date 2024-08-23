@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC393A7C2C78603A00BC0281 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7B2C78603A00BC0281 /* HomeViewController.swift */; };
+		BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7D2C78604300BC0281 /* DietViewController.swift */; };
+		BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7F2C78604C00BC0281 /* RecordViewController.swift */; };
+		BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A812C78605400BC0281 /* ProfileViewController.swift */; };
+		BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25C2C72E74D0002651E /* AppDelegate.swift */; };
+		BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25E2C72E74D0002651E /* SceneDelegate.swift */; };
+		BC70A2612C72E74D0002651E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A2602C72E74D0002651E /* ViewController.swift */; };
+		BC70A2642C72E74D0002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2632C72E74D0002651E /* Base */; };
+		BC70A2662C72E7500002651E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2652C72E7500002651E /* Assets.xcassets */; };
+		BC70A2692C72E7500002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2682C72E7500002651E /* Base */; };
+		BC98225B2C78664D00249E03 /* modelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225A2C78664D00249E03 /* modelTest.swift */; };
+		BC98225D2C78665500249E03 /* helperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225C2C78665500249E03 /* helperTest.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BC393A7B2C78603A00BC0281 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BC393A7D2C78604300BC0281 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
+		BC393A7F2C78604C00BC0281 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		BC393A812C78605400BC0281 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BC70A2592C72E74D0002651E /* LumiFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LumiFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC70A25C2C72E74D0002651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BC70A25E2C72E74D0002651E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BC70A2602C72E74D0002651E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC70A2632C72E74D0002651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BC70A2652C72E7500002651E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC70A2682C72E7500002651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BC70A26A2C72E7500002651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC98225A2C78664D00249E03 /* modelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelTest.swift; sourceTree = "<group>"; };
+		BC98225C2C78665500249E03 /* helperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperTest.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC70A2562C72E74D0002651E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC393A782C785FE700BC0281 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC98225A2C78664D00249E03 /* modelTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC393A792C785FEF00BC0281 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC393A7B2C78603A00BC0281 /* HomeViewController.swift */,
+				BC393A7D2C78604300BC0281 /* DietViewController.swift */,
+				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
+				BC393A812C78605400BC0281 /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BC393A7A2C785FFC00BC0281 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BC98225C2C78665500249E03 /* helperTest.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BC393A832C78606200BC0281 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC70A2622C72E74D0002651E /* Main.storyboard */,
+				BC70A2672C72E7500002651E /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC70A2502C72E74D0002651E = {
+			isa = PBXGroup;
+			children = (
+				BC70A25B2C72E74D0002651E /* LumiFit */,
+				BC70A25A2C72E74D0002651E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC70A25A2C72E74D0002651E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC70A2592C72E74D0002651E /* LumiFit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC70A25B2C72E74D0002651E /* LumiFit */ = {
+			isa = PBXGroup;
+			children = (
+				BC70A25C2C72E74D0002651E /* AppDelegate.swift */,
+				BC70A25E2C72E74D0002651E /* SceneDelegate.swift */,
+				BC70A2602C72E74D0002651E /* ViewController.swift */,
+				BC393A832C78606200BC0281 /* View */,
+				BC393A7A2C785FFC00BC0281 /* Helper */,
+				BC393A792C785FEF00BC0281 /* ViewControllers */,
+				BC393A782C785FE700BC0281 /* Models */,
+				BC70A2652C72E7500002651E /* Assets.xcassets */,
+				BC70A26A2C72E7500002651E /* Info.plist */,
+			);
+			path = LumiFit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC70A2582C72E74D0002651E /* LumiFit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC70A26D2C72E7500002651E /* Build configuration list for PBXNativeTarget "LumiFit" */;
+			buildPhases = (
+				BC70A2552C72E74D0002651E /* Sources */,
+				BC70A2562C72E74D0002651E /* Frameworks */,
+				BC70A2572C72E74D0002651E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LumiFit;
+			productName = LumiFit;
+			productReference = BC70A2592C72E74D0002651E /* LumiFit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC70A2512C72E74D0002651E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					BC70A2582C72E74D0002651E = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = BC70A2542C72E74D0002651E /* Build configuration list for PBXProject "LumiFit" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC70A2502C72E74D0002651E;
+			productRefGroup = BC70A25A2C72E74D0002651E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC70A2582C72E74D0002651E /* LumiFit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC70A2572C72E74D0002651E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC70A2662C72E7500002651E /* Assets.xcassets in Resources */,
+				BC70A2692C72E7500002651E /* Base in Resources */,
+				BC70A2642C72E74D0002651E /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC70A2552C72E74D0002651E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC70A2612C72E74D0002651E /* ViewController.swift in Sources */,
+				BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */,
+				BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */,
+				BC98225B2C78664D00249E03 /* modelTest.swift in Sources */,
+				BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */,
+				BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */,
+				BC393A7C2C78603A00BC0281 /* HomeViewController.swift in Sources */,
+				BC98225D2C78665500249E03 /* helperTest.swift in Sources */,
+				BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BC70A2622C72E74D0002651E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC70A2632C72E74D0002651E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BC70A2672C72E7500002651E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC70A2682C72E7500002651E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BC70A26B2C72E7500002651E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BC70A26C2C72E7500002651E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC70A26E2C72E7500002651E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A89P8LLWX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LumiFit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.austinxu.LumiFit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC70A26F2C72E7500002651E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A89P8LLWX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LumiFit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.austinxu.LumiFit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC70A2542C72E74D0002651E /* Build configuration list for PBXProject "LumiFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC70A26B2C72E7500002651E /* Debug */,
+				BC70A26C2C72E7500002651E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC70A26D2C72E7500002651E /* Build configuration list for PBXNativeTarget "LumiFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC70A26E2C72E7500002651E /* Debug */,
+				BC70A26F2C72E7500002651E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC70A2512C72E74D0002651E /* Project object */;
+}
