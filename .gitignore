@@ -1,0 +1,74 @@
+# Xcode
+#
+build/
+DerivedData/
+.idea/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcuserstate
+*.xcscmblueprint
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/xcshareddata/.*
+
+# Swift Package Manager
+#
+Packages
+Package.pins
+Package.resolved
+.build/
+
+# Carthage
+#
+Carthage/Build/
+Carthage/Checkouts/
+
+# CocoaPods
+#
+Pods/
+Podfile.lock
+*.xcworkspace
+
+# fastlane
+#
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# Reference Images
+#
+*.kmz
+*.map
+*.gpx
+*.png
+
+# AppCode
+#
+.idea/
+
+# Avoid committing sensitive files
+#
+*.key
+*.plist
+
+# Environment variables
+#
+.env
+.env.*
+
+# Crashlytics
+#
+fabric.properties
+
+# Other
+#
+*.orig
+*.backup
+*.swp
+*.log
+*.tmp
+
