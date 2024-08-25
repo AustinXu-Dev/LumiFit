@@ -8,8 +8,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
+    // MARK: - Properties
     @IBOutlet weak var activityView: UIStackView!
+    @IBOutlet weak var popularExerciseLabel: UIStackView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    private var cardData: [ExerciseCardModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +20,13 @@ class HomeViewController: UIViewController {
         // Create a container view for the custom navigation bar item
         setUpNavigationItemUI()
         setUpActivityCardUI()
+        setupCardData()
+        setUpPopularExerciseUI()
+        
+
     }
 
-    
+    // MARK: - UI Setup Functions
     private func setUpNavigationItemUI(){
         let containerView = UIView()
 
@@ -101,6 +108,27 @@ class HomeViewController: UIViewController {
         ])
         
     }
+    
+    private func setUpPopularExerciseUI(){
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 16
+        layout.itemSize = CGSize(width: 300, height: 200)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.collectionViewLayout = layout
+    }
+    
+    private func setupCardData() {
+        cardData = [
+            ExerciseCardModel(title: "Total Body Yoga - Deep Stretch", duration: "15 min", calories: "346 kcal", image: UIImage(named: "yoga")!, backgroundColor: UIColor.systemTeal),
+            ExerciseCardModel(title: "Weight Loss Exercise Sessions", duration: "30 min", calories: "346 kcal", image: UIImage(named: "bicycling_exercise")!, backgroundColor: UIColor.systemGray)
+            // Add more cards as needed
+        ]
+    }
     /*
     // MARK: - Navigation
 
@@ -111,4 +139,19 @@ class HomeViewController: UIViewController {
     }
     */
 
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cardData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCardCell", for: indexPath) as! ExerciseCardCell
+        let cardModel = cardData[indexPath.item]
+        cell.configure(with: cardModel)
+        return cell
+    }
+    
+    
 }

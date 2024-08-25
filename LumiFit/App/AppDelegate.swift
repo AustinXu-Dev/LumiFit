@@ -13,6 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Task {
+           do {
+               try await Constants.loadAPIKeys()
+           } catch {
+               // Handle the error appropriately
+               print("Failed to load API keys: \(error)")
+           }
+        }
         // Override point for customization after application launch.
         return true
     }
