@@ -11,6 +11,7 @@
 		BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7D2C78604300BC0281 /* DietViewController.swift */; };
 		BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7F2C78604C00BC0281 /* RecordViewController.swift */; };
 		BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A812C78605400BC0281 /* ProfileViewController.swift */; };
+		BC6829012C7A1F790085A3A5 /* ExerciseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829002C7A1F790085A3A5 /* ExerciseCardView.swift */; };
 		BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25C2C72E74D0002651E /* AppDelegate.swift */; };
 		BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25E2C72E74D0002651E /* SceneDelegate.swift */; };
 		BC70A2612C72E74D0002651E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A2602C72E74D0002651E /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 		BC70A2692C72E7500002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2682C72E7500002651E /* Base */; };
 		BC98225B2C78664D00249E03 /* modelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225A2C78664D00249E03 /* modelTest.swift */; };
 		BC98225D2C78665500249E03 /* helperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225C2C78665500249E03 /* helperTest.swift */; };
+		BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8FB812C78B6220096769E /* ActivityCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,7 @@
 		BC393A7D2C78604300BC0281 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		BC393A7F2C78604C00BC0281 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		BC393A812C78605400BC0281 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BC6829002C7A1F790085A3A5 /* ExerciseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardView.swift; sourceTree = "<group>"; };
 		BC70A2592C72E74D0002651E /* LumiFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LumiFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC70A25C2C72E74D0002651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC70A25E2C72E74D0002651E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		BC70A26A2C72E7500002651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC98225A2C78664D00249E03 /* modelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelTest.swift; sourceTree = "<group>"; };
 		BC98225C2C78665500249E03 /* helperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperTest.swift; sourceTree = "<group>"; };
+		BCC8FB812C78B6220096769E /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,15 +61,11 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		BC393A792C785FEF00BC0281 /* ViewControllers */ = {
+		BC393A792C785FEF00BC0281 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				BC393A7B2C78603A00BC0281 /* HomeViewController.swift */,
-				BC393A7D2C78604300BC0281 /* DietViewController.swift */,
-				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
-				BC393A812C78605400BC0281 /* ProfileViewController.swift */,
 			);
-			path = ViewControllers;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		BC393A7A2C785FFC00BC0281 /* Helper */ = {
@@ -76,13 +76,28 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		BC393A832C78606200BC0281 /* View */ = {
+		BC393A832C78606200BC0281 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC6828FF2C7A1F610085A3A5 /* Home */,
 				BC70A2622C72E74D0002651E /* Main.storyboard */,
 				BC70A2672C72E7500002651E /* LaunchScreen.storyboard */,
+				BC70A2602C72E74D0002651E /* ViewController.swift */,
+				BC393A7D2C78604300BC0281 /* DietViewController.swift */,
+				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
+				BC393A812C78605400BC0281 /* ProfileViewController.swift */,
 			);
-			path = View;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC6828FF2C7A1F610085A3A5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BC393A7B2C78603A00BC0281 /* HomeViewController.swift */,
+				BCC8FB812C78B6220096769E /* ActivityCardView.swift */,
+				BC6829002C7A1F790085A3A5 /* ExerciseCardView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		BC70A2502C72E74D0002651E = {
@@ -104,17 +119,40 @@
 		BC70A25B2C72E74D0002651E /* LumiFit */ = {
 			isa = PBXGroup;
 			children = (
-				BC70A25C2C72E74D0002651E /* AppDelegate.swift */,
-				BC70A25E2C72E74D0002651E /* SceneDelegate.swift */,
-				BC70A2602C72E74D0002651E /* ViewController.swift */,
-				BC393A832C78606200BC0281 /* View */,
+				BCC8FB832C78B7180096769E /* App */,
+				BC393A832C78606200BC0281 /* Views */,
 				BC393A7A2C785FFC00BC0281 /* Helper */,
-				BC393A792C785FEF00BC0281 /* ViewControllers */,
+				BC393A792C785FEF00BC0281 /* ViewModels */,
+				BCC8FB842C78B7530096769E /* Networking */,
 				BC393A782C785FE700BC0281 /* Models */,
+				BCC8FB852C78B7670096769E /* Utils */,
 				BC70A2652C72E7500002651E /* Assets.xcassets */,
 				BC70A26A2C72E7500002651E /* Info.plist */,
 			);
 			path = LumiFit;
+			sourceTree = "<group>";
+		};
+		BCC8FB832C78B7180096769E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BC70A25C2C72E74D0002651E /* AppDelegate.swift */,
+				BC70A25E2C72E74D0002651E /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BCC8FB842C78B7530096769E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		BCC8FB852C78B7670096769E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +235,8 @@
 				BC393A7C2C78603A00BC0281 /* HomeViewController.swift in Sources */,
 				BC98225D2C78665500249E03 /* helperTest.swift in Sources */,
 				BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */,
+				BC6829012C7A1F790085A3A5 /* ExerciseCardView.swift in Sources */,
+				BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
