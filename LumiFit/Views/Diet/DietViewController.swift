@@ -19,24 +19,23 @@ class DietViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            do {
-                // Initialize NetworkManager once
-                let manager = try await NetworkManager()
-                self.networkManager = manager
-            } catch {
-                print("Failed to initialize NetworkManager: \(error)")
-            }
-        }
         
         // Do any additional setup after loading the view.
+        Task{
+            do {
+                self.networkManager = try await NetworkManager()
+            } catch {
+                fatalError("Failed to initialize NetworkManager: \(error.localizedDescription)")
+            }
+        }
     }
     
     
     @IBAction func confirmButton(_ sender: UIButton) {
         if let food = foodTextField.text, !food.isEmpty {
-            networkManager?.fetchData(params: food) { [weak self] result in
-                guard let self = self else { return }
+            print(food)
+            print("button works")
+            networkManager?.fetchData(params: food) { result in
                 switch result {
                 case .success(let data):
                     if let foodModel = data.items.first {

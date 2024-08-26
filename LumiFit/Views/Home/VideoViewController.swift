@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class VideoViewController: UIViewController {
 
@@ -13,6 +14,17 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guard let videoURL = Bundle.main.url(forResource: "yoga_video1", withExtension: "mp4") else {
+            print("Video file not found")
+            return
+        }
+        let player = AVPlayer(url: videoURL)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        self.view.layer.addSublayer(playerLayer)
+        player.play()
+
     }
     
 

@@ -11,14 +11,19 @@
 		BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7D2C78604300BC0281 /* DietViewController.swift */; };
 		BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7F2C78604C00BC0281 /* RecordViewController.swift */; };
 		BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A812C78605400BC0281 /* ProfileViewController.swift */; };
-		BC6829012C7A1F790085A3A5 /* ExerciseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829002C7A1F790085A3A5 /* ExerciseCardView.swift */; };
+		BC6829082C7B26E80085A3A5 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829072C7B26E80085A3A5 /* FoodModel.swift */; };
+		BC68290B2C7B27DA0085A3A5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC68290A2C7B27DA0085A3A5 /* Alamofire */; };
+		BC68290D2C7B285E0085A3A5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68290C2C7B285E0085A3A5 /* NetworkManager.swift */; };
+		BC6829122C7B60A20085A3A5 /* ExerciseCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829112C7B60A20085A3A5 /* ExerciseCardCell.swift */; };
+		BC6829142C7B62C40085A3A5 /* ExerciseCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829132C7B62C40085A3A5 /* ExerciseCardModel.swift */; };
+		BC6829182C7B6E6E0085A3A5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829172C7B6E6E0085A3A5 /* VideoViewController.swift */; };
+		BC6829192C7B6EAC0085A3A5 /* yoga_video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BC6829162C7B6DEF0085A3A5 /* yoga_video1.mp4 */; };
 		BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25C2C72E74D0002651E /* AppDelegate.swift */; };
 		BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25E2C72E74D0002651E /* SceneDelegate.swift */; };
 		BC70A2612C72E74D0002651E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A2602C72E74D0002651E /* ViewController.swift */; };
 		BC70A2642C72E74D0002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2632C72E74D0002651E /* Base */; };
 		BC70A2662C72E7500002651E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2652C72E7500002651E /* Assets.xcassets */; };
 		BC70A2692C72E7500002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2682C72E7500002651E /* Base */; };
-		BC98225B2C78664D00249E03 /* modelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225A2C78664D00249E03 /* modelTest.swift */; };
 		BC98225D2C78665500249E03 /* helperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225C2C78665500249E03 /* helperTest.swift */; };
 		BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8FB812C78B6220096769E /* ActivityCardView.swift */; };
 /* End PBXBuildFile section */
@@ -28,7 +33,12 @@
 		BC393A7D2C78604300BC0281 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		BC393A7F2C78604C00BC0281 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		BC393A812C78605400BC0281 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		BC6829002C7A1F790085A3A5 /* ExerciseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardView.swift; sourceTree = "<group>"; };
+		BC6829072C7B26E80085A3A5 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		BC68290C2C7B285E0085A3A5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BC6829112C7B60A20085A3A5 /* ExerciseCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardCell.swift; sourceTree = "<group>"; };
+		BC6829132C7B62C40085A3A5 /* ExerciseCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardModel.swift; sourceTree = "<group>"; };
+		BC6829162C7B6DEF0085A3A5 /* yoga_video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = yoga_video1.mp4; sourceTree = "<group>"; };
+		BC6829172C7B6E6E0085A3A5 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		BC70A2592C72E74D0002651E /* LumiFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LumiFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC70A25C2C72E74D0002651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC70A25E2C72E74D0002651E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +47,6 @@
 		BC70A2652C72E7500002651E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC70A2682C72E7500002651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC70A26A2C72E7500002651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC98225A2C78664D00249E03 /* modelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelTest.swift; sourceTree = "<group>"; };
 		BC98225C2C78665500249E03 /* helperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperTest.swift; sourceTree = "<group>"; };
 		BCC8FB812C78B6220096769E /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC68290B2C7B27DA0085A3A5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +66,8 @@
 		BC393A782C785FE700BC0281 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BC98225A2C78664D00249E03 /* modelTest.swift */,
+				BC6829072C7B26E80085A3A5 /* FoodModel.swift */,
+				BC6829132C7B62C40085A3A5 /* ExerciseCardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -80,10 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				BC6828FF2C7A1F610085A3A5 /* Home */,
+				BC68290E2C7B58E50085A3A5 /* Diet */,
 				BC70A2622C72E74D0002651E /* Main.storyboard */,
 				BC70A2672C72E7500002651E /* LaunchScreen.storyboard */,
 				BC70A2602C72E74D0002651E /* ViewController.swift */,
-				BC393A7D2C78604300BC0281 /* DietViewController.swift */,
 				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
 				BC393A812C78605400BC0281 /* ProfileViewController.swift */,
 			);
@@ -95,9 +106,26 @@
 			children = (
 				BC393A7B2C78603A00BC0281 /* HomeViewController.swift */,
 				BCC8FB812C78B6220096769E /* ActivityCardView.swift */,
-				BC6829002C7A1F790085A3A5 /* ExerciseCardView.swift */,
+				BC6829112C7B60A20085A3A5 /* ExerciseCardCell.swift */,
+				BC6829172C7B6E6E0085A3A5 /* VideoViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		BC68290E2C7B58E50085A3A5 /* Diet */ = {
+			isa = PBXGroup;
+			children = (
+				BC393A7D2C78604300BC0281 /* DietViewController.swift */,
+			);
+			path = Diet;
+			sourceTree = "<group>";
+		};
+		BC6829152C7B6DDF0085A3A5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BC6829162C7B6DEF0085A3A5 /* yoga_video1.mp4 */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		BC70A2502C72E74D0002651E = {
@@ -119,6 +147,7 @@
 		BC70A25B2C72E74D0002651E /* LumiFit */ = {
 			isa = PBXGroup;
 			children = (
+				BC6829152C7B6DDF0085A3A5 /* Resource */,
 				BCC8FB832C78B7180096769E /* App */,
 				BC393A832C78606200BC0281 /* Views */,
 				BC393A7A2C785FFC00BC0281 /* Helper */,
@@ -144,6 +173,7 @@
 		BCC8FB842C78B7530096769E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				BC68290C2C7B285E0085A3A5 /* NetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -171,6 +201,9 @@
 			dependencies = (
 			);
 			name = LumiFit;
+			packageProductDependencies = (
+				BC68290A2C7B27DA0085A3A5 /* Alamofire */,
+			);
 			productName = LumiFit;
 			productReference = BC70A2592C72E74D0002651E /* LumiFit.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +215,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					APIKeys,
+				);
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
@@ -199,6 +235,9 @@
 				Base,
 			);
 			mainGroup = BC70A2502C72E74D0002651E;
+			packageReferences = (
+				BC6829092C7B27DA0085A3A5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = BC70A25A2C72E74D0002651E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -214,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC70A2662C72E7500002651E /* Assets.xcassets in Resources */,
+				BC6829192C7B6EAC0085A3A5 /* yoga_video1.mp4 in Resources */,
 				BC70A2692C72E7500002651E /* Base in Resources */,
 				BC70A2642C72E74D0002651E /* Base in Resources */,
 			);
@@ -226,16 +266,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6829122C7B60A20085A3A5 /* ExerciseCardCell.swift in Sources */,
+				BC68290D2C7B285E0085A3A5 /* NetworkManager.swift in Sources */,
 				BC70A2612C72E74D0002651E /* ViewController.swift in Sources */,
 				BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */,
 				BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */,
-				BC98225B2C78664D00249E03 /* modelTest.swift in Sources */,
 				BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */,
 				BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */,
 				BC393A7C2C78603A00BC0281 /* HomeViewController.swift in Sources */,
+				BC6829182C7B6E6E0085A3A5 /* VideoViewController.swift in Sources */,
 				BC98225D2C78665500249E03 /* helperTest.swift in Sources */,
+				BC6829142C7B62C40085A3A5 /* ExerciseCardModel.swift in Sources */,
 				BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */,
-				BC6829012C7A1F790085A3A5 /* ExerciseCardView.swift in Sources */,
+				BC6829082C7B26E80085A3A5 /* FoodModel.swift in Sources */,
 				BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,11 +444,16 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = APIKeys;
 				PRODUCT_BUNDLE_IDENTIFIER = com.austinxu.LumiFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -429,11 +477,16 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = APIKeys;
 				PRODUCT_BUNDLE_IDENTIFIER = com.austinxu.LumiFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -459,6 +512,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC6829092C7B27DA0085A3A5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC68290A2C7B27DA0085A3A5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC6829092C7B27DA0085A3A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BC70A2512C72E74D0002651E /* Project object */;
 }
