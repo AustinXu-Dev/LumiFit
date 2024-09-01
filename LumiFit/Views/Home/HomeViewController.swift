@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     }
 
     // MARK: - UI Setup Functions
-    private func setUpNavigationItemUI(){
+    fileprivate func setUpNavigationItemUI(){
         let containerView = UIView()
 
         // Create and configure the profile image view
@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = customLeftItem
     }
     
-    private func setUpActivityCardUI(){
+    fileprivate func setUpActivityCardUI(){
         let dailyActivityCard = ActivityCardView(frame: CGRect(x: 50, y: 100, width: 150, height: 150))
         dailyActivityCard.configure(image: UIImage(named: "foot_walk")!, title: "Daily Activity", backgroundColor: UIColor(named: "green_card")!, progress: 0.2)
             
@@ -109,7 +109,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    private func setUpPopularExerciseUI(){
+    fileprivate func setUpPopularExerciseUI(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 16
@@ -122,7 +122,7 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = layout
     }
     
-    private func setupCardData() {
+    fileprivate func setupCardData() {
         cardData = [
             ExerciseCardModel(title: "Total Body Yoga - Deep Stretch", duration: "15 min", calories: "346 kcal", image: UIImage(named: "yoga")!, backgroundColor: UIColor.systemTeal),
             ExerciseCardModel(title: "Weight Loss Exercise Sessions", duration: "30 min", calories: "346 kcal", image: UIImage(named: "bicycling_exercise")!, backgroundColor: UIColor.systemGray)

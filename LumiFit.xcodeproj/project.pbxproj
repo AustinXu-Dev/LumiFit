@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC2031842C819A7C008B7E93 /* WaterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2031832C819A7B008B7E93 /* WaterDetailViewController.swift */; };
 		BC393A7C2C78603A00BC0281 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7B2C78603A00BC0281 /* HomeViewController.swift */; };
 		BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7D2C78604300BC0281 /* DietViewController.swift */; };
 		BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7F2C78604C00BC0281 /* RecordViewController.swift */; };
@@ -25,6 +26,7 @@
 		BC70A2662C72E7500002651E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2652C72E7500002651E /* Assets.xcassets */; };
 		BC70A2692C72E7500002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2682C72E7500002651E /* Base */; };
 		BC98225D2C78665500249E03 /* helperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225C2C78665500249E03 /* helperTest.swift */; };
+		BCA420842C83794C00D41DDB /* WaterCalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */; };
 		BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8FB812C78B6220096769E /* ActivityCardView.swift */; };
 		BCD77FE32C808320000A408E /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */; };
 		BCD77FE52C808330000A408E /* WaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE42C808330000A408E /* WaterTableViewCell.swift */; };
@@ -33,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC2031832C819A7B008B7E93 /* WaterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDetailViewController.swift; sourceTree = "<group>"; };
 		BC393A7B2C78603A00BC0281 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC393A7D2C78604300BC0281 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		BC393A7F2C78604C00BC0281 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		BC70A2682C72E7500002651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC70A26A2C72E7500002651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC98225C2C78665500249E03 /* helperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperTest.swift; sourceTree = "<group>"; };
+		BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCalViewModel.swift; sourceTree = "<group>"; };
 		BCC8FB812C78B6220096769E /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
 		BCD77FE42C808330000A408E /* WaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD77FE82C809370000A408E /* CalorieViewModel.swift */,
+				BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */,
 				BCD77FE42C808330000A408E /* WaterTableViewCell.swift */,
 				BCD77FE62C808B1C000A408E /* NutritionDetailViewController.swift */,
+				BC2031832C819A7B008B7E93 /* WaterDetailViewController.swift */,
 			);
 			path = Diet;
 			sourceTree = "<group>";
@@ -279,9 +285,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC6829122C7B60A20085A3A5 /* ExerciseCardCell.swift in Sources */,
+				BCA420842C83794C00D41DDB /* WaterCalViewModel.swift in Sources */,
 				BC68290D2C7B285E0085A3A5 /* NetworkManager.swift in Sources */,
 				BC70A2612C72E74D0002651E /* ViewController.swift in Sources */,
 				BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */,
+				BC2031842C819A7C008B7E93 /* WaterDetailViewController.swift in Sources */,
 				BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */,
 				BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */,
 				BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */,

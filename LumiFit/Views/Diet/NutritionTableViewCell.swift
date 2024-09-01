@@ -33,8 +33,6 @@ class NutritionTableViewCell: UITableViewCell {
     }
     
     func configure(with viewModel: CalorieViewModel) {
-        print("Configuring cell with currentCalories: \(viewModel.currentCalories), progress: \(viewModel.progress)")
-
         calorieLabel.text = "\(viewModel.currentCalories)"
         calorieProgressView.progress = Float(viewModel.progress)
     }

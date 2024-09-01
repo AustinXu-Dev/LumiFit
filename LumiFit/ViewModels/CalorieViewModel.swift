@@ -9,8 +9,16 @@ import Foundation
 
 class CalorieViewModel {
     private var totalCalories: Double = 0
-    private let dailyGoal: Double = 2500
     
+    private var dailyGoal: Double {
+        get {
+            return UserDefaults.standard.double(forKey: "calorieGoal") != 0 ? UserDefaults.standard.double(forKey: "calorieGoal") : 2500
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "calorieGoal")
+        }
+    }
+        
     var currentCalories: Double {
         return totalCalories
     }
