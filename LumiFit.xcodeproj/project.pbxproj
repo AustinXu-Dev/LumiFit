@@ -12,6 +12,7 @@
 		BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7D2C78604300BC0281 /* DietViewController.swift */; };
 		BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7F2C78604C00BC0281 /* RecordViewController.swift */; };
 		BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A812C78605400BC0281 /* ProfileViewController.swift */; };
+		BC45124F2C855EB800453720 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BCA420882C84B5B800D41DDB /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC6829082C7B26E80085A3A5 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829072C7B26E80085A3A5 /* FoodModel.swift */; };
 		BC68290B2C7B27DA0085A3A5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC68290A2C7B27DA0085A3A5 /* Alamofire */; };
 		BC68290D2C7B285E0085A3A5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68290C2C7B285E0085A3A5 /* NetworkManager.swift */; };
@@ -25,14 +26,37 @@
 		BC70A2642C72E74D0002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2632C72E74D0002651E /* Base */; };
 		BC70A2662C72E7500002651E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2652C72E7500002651E /* Assets.xcassets */; };
 		BC70A2692C72E7500002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2682C72E7500002651E /* Base */; };
-		BC98225D2C78665500249E03 /* helperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC98225C2C78665500249E03 /* helperTest.swift */; };
+		BC741B822C898960004F0EE7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC741B812C898960004F0EE7 /* EditProfileViewController.swift */; };
 		BCA420842C83794C00D41DDB /* WaterCalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */; };
+		BCA420892C84B5B800D41DDB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCA420882C84B5B800D41DDB /* RealmSwift */; };
+		BCA4208B2C84B66C00D41DDB /* WaterIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4208A2C84B66B00D41DDB /* WaterIntake.swift */; };
+		BCA4208D2C84B7C800D41DDB /* CalorieIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4208C2C84B7C800D41DDB /* CalorieIntake.swift */; };
+		BCA4208F2C84B94500D41DDB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4208E2C84B94500D41DDB /* DateExtension.swift */; };
+		BCA420912C855B3B00D41DDB /* IntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA420902C855B3B00D41DDB /* IntakeViewModel.swift */; };
+		BCA420972C855D5200D41DDB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = BCA420962C855D5200D41DDB /* DGCharts */; };
+		BCC489C22C88BA66006107A5 /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C12C88BA66006107A5 /* PersonModel.swift */; };
+		BCC489C42C88BC02006107A5 /* PersonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C32C88BC02006107A5 /* PersonDetailCell.swift */; };
+		BCC489C62C88C069006107A5 /* EditPersonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C52C88C069006107A5 /* EditPersonDetailCell.swift */; };
 		BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8FB812C78B6220096769E /* ActivityCardView.swift */; };
 		BCD77FE32C808320000A408E /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */; };
 		BCD77FE52C808330000A408E /* WaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE42C808330000A408E /* WaterTableViewCell.swift */; };
 		BCD77FE72C808B1C000A408E /* NutritionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE62C808B1C000A408E /* NutritionDetailViewController.swift */; };
 		BCD77FE92C809370000A408E /* CalorieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE82C809370000A408E /* CalorieViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BCA420992C855DAD00D41DDB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BC45124F2C855EB800453720 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BC2031832C819A7B008B7E93 /* WaterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDetailViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +78,15 @@
 		BC70A2652C72E7500002651E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC70A2682C72E7500002651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC70A26A2C72E7500002651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC98225C2C78665500249E03 /* helperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperTest.swift; sourceTree = "<group>"; };
+		BC741B812C898960004F0EE7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCalViewModel.swift; sourceTree = "<group>"; };
+		BCA4208A2C84B66B00D41DDB /* WaterIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntake.swift; sourceTree = "<group>"; };
+		BCA4208C2C84B7C800D41DDB /* CalorieIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntake.swift; sourceTree = "<group>"; };
+		BCA4208E2C84B94500D41DDB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		BCA420902C855B3B00D41DDB /* IntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeViewModel.swift; sourceTree = "<group>"; };
+		BCC489C12C88BA66006107A5 /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
+		BCC489C32C88BC02006107A5 /* PersonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailCell.swift; sourceTree = "<group>"; };
+		BCC489C52C88C069006107A5 /* EditPersonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonDetailCell.swift; sourceTree = "<group>"; };
 		BCC8FB812C78B6220096769E /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
 		BCD77FE42C808330000A408E /* WaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA420972C855D5200D41DDB /* DGCharts in Frameworks */,
+				BCA420892C84B5B800D41DDB /* RealmSwift in Frameworks */,
 				BC68290B2C7B27DA0085A3A5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +113,9 @@
 			children = (
 				BC6829072C7B26E80085A3A5 /* FoodModel.swift */,
 				BC6829132C7B62C40085A3A5 /* ExerciseCardModel.swift */,
+				BCA4208A2C84B66B00D41DDB /* WaterIntake.swift */,
+				BCA4208C2C84B7C800D41DDB /* CalorieIntake.swift */,
+				BCC489C12C88BA66006107A5 /* PersonModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -89,6 +125,7 @@
 			children = (
 				BCD77FE82C809370000A408E /* CalorieViewModel.swift */,
 				BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */,
+				BCA420902C855B3B00D41DDB /* IntakeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -96,7 +133,7 @@
 		BC393A7A2C785FFC00BC0281 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BC98225C2C78665500249E03 /* helperTest.swift */,
+				BCA4208E2C84B94500D41DDB /* DateExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -106,11 +143,11 @@
 			children = (
 				BC6828FF2C7A1F610085A3A5 /* Home */,
 				BC68290E2C7B58E50085A3A5 /* Diet */,
+				BCA420922C855CA400D41DDB /* Record */,
+				BCC489C02C88B817006107A5 /* Profile */,
 				BC70A2622C72E74D0002651E /* Main.storyboard */,
 				BC70A2672C72E7500002651E /* LaunchScreen.storyboard */,
 				BC70A2602C72E74D0002651E /* ViewController.swift */,
-				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
-				BC393A812C78605400BC0281 /* ProfileViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +216,25 @@
 			path = LumiFit;
 			sourceTree = "<group>";
 		};
+		BCA420922C855CA400D41DDB /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		BCC489C02C88B817006107A5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BC393A812C78605400BC0281 /* ProfileViewController.swift */,
+				BCC489C32C88BC02006107A5 /* PersonDetailCell.swift */,
+				BCC489C52C88C069006107A5 /* EditPersonDetailCell.swift */,
+				BC741B812C898960004F0EE7 /* EditProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		BCC8FB832C78B7180096769E /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +269,7 @@
 				BC70A2552C72E74D0002651E /* Sources */,
 				BC70A2562C72E74D0002651E /* Frameworks */,
 				BC70A2572C72E74D0002651E /* Resources */,
+				BCA420992C855DAD00D41DDB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,6 +278,8 @@
 			name = LumiFit;
 			packageProductDependencies = (
 				BC68290A2C7B27DA0085A3A5 /* Alamofire */,
+				BCA420882C84B5B800D41DDB /* RealmSwift */,
+				BCA420962C855D5200D41DDB /* DGCharts */,
 			);
 			productName = LumiFit;
 			productReference = BC70A2592C72E74D0002651E /* LumiFit.app */;
@@ -255,6 +314,8 @@
 			mainGroup = BC70A2502C72E74D0002651E;
 			packageReferences = (
 				BC6829092C7B27DA0085A3A5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BCA420852C84B5B800D41DDB /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BCA420952C855D5200D41DDB /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = BC70A25A2C72E74D0002651E /* Products */;
 			projectDirPath = "";
@@ -287,23 +348,30 @@
 				BC6829122C7B60A20085A3A5 /* ExerciseCardCell.swift in Sources */,
 				BCA420842C83794C00D41DDB /* WaterCalViewModel.swift in Sources */,
 				BC68290D2C7B285E0085A3A5 /* NetworkManager.swift in Sources */,
+				BCA4208D2C84B7C800D41DDB /* CalorieIntake.swift in Sources */,
 				BC70A2612C72E74D0002651E /* ViewController.swift in Sources */,
 				BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */,
+				BCA420912C855B3B00D41DDB /* IntakeViewModel.swift in Sources */,
 				BC2031842C819A7C008B7E93 /* WaterDetailViewController.swift in Sources */,
 				BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */,
 				BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */,
 				BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */,
 				BCD77FE32C808320000A408E /* NutritionTableViewCell.swift in Sources */,
+				BCC489C22C88BA66006107A5 /* PersonModel.swift in Sources */,
 				BC393A7C2C78603A00BC0281 /* HomeViewController.swift in Sources */,
 				BCD77FE52C808330000A408E /* WaterTableViewCell.swift in Sources */,
+				BCC489C62C88C069006107A5 /* EditPersonDetailCell.swift in Sources */,
 				BCD77FE92C809370000A408E /* CalorieViewModel.swift in Sources */,
+				BCC489C42C88BC02006107A5 /* PersonDetailCell.swift in Sources */,
 				BC6829182C7B6E6E0085A3A5 /* VideoViewController.swift in Sources */,
-				BC98225D2C78665500249E03 /* helperTest.swift in Sources */,
 				BC6829142C7B62C40085A3A5 /* ExerciseCardModel.swift in Sources */,
 				BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */,
+				BCA4208F2C84B94500D41DDB /* DateExtension.swift in Sources */,
+				BCA4208B2C84B66C00D41DDB /* WaterIntake.swift in Sources */,
 				BC6829082C7B26E80085A3A5 /* FoodModel.swift in Sources */,
 				BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */,
 				BCD77FE72C808B1C000A408E /* NutritionDetailViewController.swift in Sources */,
+				BC741B822C898960004F0EE7 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +614,22 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		BCA420852C84B5B800D41DDB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		BCA420952C855D5200D41DDB /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -553,6 +637,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC6829092C7B27DA0085A3A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		BCA420882C84B5B800D41DDB /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCA420852C84B5B800D41DDB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		BCA420962C855D5200D41DDB /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCA420952C855D5200D41DDB /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

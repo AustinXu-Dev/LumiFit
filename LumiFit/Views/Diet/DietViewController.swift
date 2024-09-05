@@ -14,6 +14,7 @@ class DietViewController: UIViewController {
     var networkManager: NetworkManager?
     var calorieViewModel = CalorieViewModel()
     var waterCalViewModel = WaterCalViewModel()
+    var intakeViewModel = IntakeViewModel()  // Add IntakeViewModel instance
     @IBOutlet weak var tableView: UITableView!
     
     private var cells: [(cellId: String, cellHeight: CGFloat)] = [(cellId: "nutrition_cell", cellHeight: 235), (cellId: "water_cell", cellHeight: 210)]
@@ -23,10 +24,12 @@ class DietViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
         checkAndPromptForGoalSetting(viewModel: waterCalViewModel)
+        
+        // Set up IntakeViewModel delegate to observe changes
+        intakeViewModel.delegate = self
     }
     
     // MARK: - Validation for goal setting
@@ -55,13 +58,12 @@ class DietViewController: UIViewController {
         alert.addAction(setAction)
         alert.addAction(cancelAction)
         
-        // Assume this function is in a UIViewController subclass
         self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier{
+        switch segue.identifier {
         case goToMealSegueId:
             if let destinationVC = segue.destination as? NutritionDetailViewController {
                 destinationVC.calorieViewModel = calorieViewModel
@@ -69,7 +71,6 @@ class DietViewController: UIViewController {
         case goToWaterSegueId:
             if let destinationVC = segue.destination as? WaterDetailViewController {
                 destinationVC.waterCalViewModel = waterCalViewModel
-//                destinationVC.calorieViewModel = calorieViewModel
             }
         case .none:
             break
@@ -77,40 +78,43 @@ class DietViewController: UIViewController {
             break
         }
     }
+    
     @IBAction func unwindToDietViewController(segue: UIStoryboardSegue) {
-            // Update the NutritionTableViewCell UI after adding calories
+        // Update the NutritionTableViewCell UI after adding calories or water
         tableView.reloadData()
-        print(waterCalViewModel.currentWaterAmount)
-        
+        print(calorieViewModel.currentCalories, "for debug")
+        // Ensure the intake data is added to the database
+        intakeViewModel.addCalorieIntake(amount: calorieViewModel.currentCalories)
     }
     
+    @IBAction func unwindToDietViewControllerFromWater(segue: UIStoryboardSegue){
+        tableView.reloadData()
+        print(waterCalViewModel.currentWaterAmount)
+        intakeViewModel.addWaterIntake(amount: waterCalViewModel.currentWaterAmount)
+    }
 }
 
 // MARK: - UITableView Delegate
-extension DietViewController: UITableViewDelegate, UITableViewDataSource{
+extension DietViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let index = indexPath.row
-        if index % 2 == 0{
-            return cells[index].cellHeight
-        } else{
-            return cells[index].cellHeight
-        }
+        return cells[index].cellHeight
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cells.count
+        return cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
-        if index % 2 == 0{
+        if index % 2 == 0 {
             //MARK: - Nutrition Intake Cell
             let cell = tableView.dequeueReusableCell(withIdentifier: cells[index].cellId, for: indexPath) as! NutritionTableViewCell
             cell.delegate = self
-            cell.configure(with: calorieViewModel) //Passing calorie view model
+            cell.configure(with: calorieViewModel) // Passing calorie view model
             return cell
-        } else{
+        } else {
             //MARK: - Water Intake Cell
             let cell = tableView.dequeueReusableCell(withIdentifier: cells[index].cellId, for: indexPath) as! WaterTableViewCell
             cell.delegate = self
@@ -118,21 +122,34 @@ extension DietViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         }
     }
-    
 }
 
 // MARK: - Nutrition Cell Delegate, Water Cell Delegate
-extension DietViewController: NutritionTableViewCellDelegate, WaterTableViewCellDelegate{
-    // Handle the add meal button did tap
+extension DietViewController: NutritionTableViewCellDelegate, WaterTableViewCellDelegate {
+    
     func didTapButton(in cell: NutritionTableViewCell) {
         // Perform segue or navigation
         performSegue(withIdentifier: goToMealSegueId, sender: cell)
     }
     
-    // Handle the add meal button did tap
     func didTapButton(in cell: WaterTableViewCell) {
         performSegue(withIdentifier: goToWaterSegueId, sender: cell)
     }
+}
 
+// MARK: - IntakeViewModelDelegate
+extension DietViewController: IntakeViewModelDelegate {
+    
+    func didUpdateCalorieIntake() {
+        // Handle any UI updates or refreshes specific to the DietViewController
+        // if needed, or simply ensure the data is correctly handled.
+        print("Calorie intake updated.")
+    }
+    
+    func didUpdateWaterIntake() {
+        // Handle any UI updates or refreshes specific to the DietViewController
+        // if needed, or simply ensure the data is correctly handled.
+        print("Water intake updated.")
+    }
 }
 

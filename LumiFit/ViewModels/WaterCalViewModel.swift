@@ -9,7 +9,14 @@ import Foundation
 
 class WaterCalViewModel {
     
-    var glassCount: Double = 0
+    var glassCount: Double{
+        get {
+            return UserDefaults.standard.double(forKey: "glassCount")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "glassCount")
+        }
+    }
     var totalMl: Double {
         return glassCount * 240
     }

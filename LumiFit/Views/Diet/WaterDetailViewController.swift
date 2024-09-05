@@ -26,7 +26,7 @@ class WaterDetailViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         waterCalViewModel?.addWaterAmount(stepper.value)
-        self.performSegue(withIdentifier: "unwindToDiet", sender: self)
+        self.performSegue(withIdentifier: "unwindToDietFromWater", sender: self)
     }
     
     /*

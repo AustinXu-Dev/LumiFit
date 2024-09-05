@@ -38,22 +38,22 @@ class NutritionDetailViewController: UIViewController {
             networkManager?.fetchData(params: food) { result in
                 switch result {
                 case .success(let data):
-                    if !data.items.isEmpty{
+                    if !data.items.isEmpty {
                         data.items.forEach { foodModel in
                             DispatchQueue.main.async {
                                 self.calorieLabel.text! += "\(foodModel.name): \(foodModel.calories) calories. "
                             }
                             self.calculatedCalories += foodModel.calories
-                            
                         }
-                        
                     } else {
                         DispatchQueue.main.async {
                             self.calorieLabel.text = "No food found"
                         }
                     }
                 case .failure(let error):
-                    self.calorieLabel.text = "Error: \(error.localizedDescription)"
+                    DispatchQueue.main.async {
+                        self.calorieLabel.text = "Error: \(error.localizedDescription)"
+                    }
                 }
             }
         } else {

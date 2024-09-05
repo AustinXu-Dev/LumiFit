@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let config = Realm.Configuration(
+            schemaVersion: 2, // Increment this number each time you change the schema
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 2 {
+                    // Perform migration logic here
+                    
+                    migration.enumerateObjects(ofType: WaterIntake.className()) { oldObject, newObject in
+                        // Map old dateTimestamp to new id and date
+                        if let oldDate = oldObject?["dateTimestamp"] as? Int {
+                            newObject?["id"] = UUID()
+                            newObject?["date"] = Date(timeIntervalSince1970: TimeInterval(oldDate))
+                        }
+                    }
+                    
+                    migration.enumerateObjects(ofType: CalorieIntake.className()) { oldObject, newObject in
+                        // Map old dateTimestamp to new id and date
+                        if let oldDate = oldObject?["dateTimestamp"] as? Int {
+                            newObject?["id"] = UUID()
+                            newObject?["date"] = Date(timeIntervalSince1970: TimeInterval(oldDate))
+                        }
+                    }
+                }
+            }
+        )
+        
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+        
+        // Now that we've told Realm how to handle the schema change, open the Realm file again
+        _ = try! Realm()
         return true
     }
 
