@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ProfileViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var editButton: UIImageView!
     
     // MARK: - Properties
     var person: PersonModel?
@@ -22,12 +26,21 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        configureEditGesture()
+        
+        // Load saved profile image
+        if let imagePath = UserDefaults.standard.string(forKey: "profileImagePath") {
+            if let savedImage = loadImageFromDocumentsDirectory(filePath: imagePath) {
+                profileImage.image = savedImage
+            }
+        }
         
         // Load saved data if available
         if let savedPerson = getSavedPersonData() {
             person = savedPerson
             nameLabel.text = person?.name 
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +67,32 @@ class ProfileViewController: UIViewController {
             nameLabel.text = person?.name
             collectionView.reloadData()
         }
+    }
+    
+    // Helper function to load the image from the documents directory
+    func loadImageFromDocumentsDirectory(filePath: String) -> UIImage? {
+        let fileURL = URL(fileURLWithPath: filePath)
+        do {
+            let data = try Data(contentsOf: fileURL)
+            return UIImage(data: data)
+        } catch {
+            print("Error loading image: \(error)")
+            return nil
+        }
+    }
+    
+    func configureEditGesture(){
+        profileView.layer.cornerRadius = profileView.frame.size.width / 2
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.clipsToBounds = true
+        editButton.layer.cornerRadius = editButton.frame.size.width / 2
+        editButton.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        editButton.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func pickImage(){
+        configureImagePicker()
     }
 
     // MARK: - Show Alert to Input Data
@@ -162,10 +201,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell.label.text = "Edit Profile Info"
                 
             case 4:
-                cell.imageView.image = UIImage(systemName: "gearshape.fill")
+                cell.imageView.image = UIImage(named: "themeIcon")
                 cell.label.text = "Change Theme"
             case 5:
-                cell.imageView.image = UIImage(systemName: "gearshape.fill")
+                cell.imageView.image = UIImage(named: "translateIcon")
                 cell.label.text = "Change Languages"
             default:
                 break
@@ -180,6 +219,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: editProfileVcId) as! EditProfileViewController
             destinationVC.person = person
             navigationController?.pushViewController(destinationVC, animated: true)
+        }
+        if indexPath.row == 4{
+            var 
         }
     }
 

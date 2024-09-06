@@ -10,10 +10,14 @@ import UIKit
 class EditProfileViewController: UIViewController {
     
     //MARK: - Outlets
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var editButton: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var birthDateTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
+    
     
     //MARK: - Properties
     var person: PersonModel?
@@ -22,6 +26,39 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setUpTextFieldPlaceholder()
+        configureEditGesture()
+        
+        if let imagePath = UserDefaults.standard.string(forKey: "profileImagePath") {
+            if let savedImage = loadImageFromDocumentsDirectory(filePath: imagePath) {
+                profileImage.image = savedImage
+            }
+        }
+    }
+    
+    func loadImageFromDocumentsDirectory(filePath: String) -> UIImage? {
+        let fileURL = URL(fileURLWithPath: filePath)
+        do {
+            let data = try Data(contentsOf: fileURL)
+            return UIImage(data: data)
+        } catch {
+            print("Error loading image: \(error)")
+            return nil
+        }
+    }
+    
+    func configureEditGesture() {
+        profileView.layer.cornerRadius = profileView.frame.size.width / 2
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.clipsToBounds = true
+        
+        editButton.layer.cornerRadius = editButton.frame.size.width / 2
+        editButton.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        editButton.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func pickImage() {
+        configureImagePicker()
     }
     
     func setUpTextFieldPlaceholder() {

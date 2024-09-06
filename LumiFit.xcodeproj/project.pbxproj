@@ -34,6 +34,7 @@
 		BCA4208F2C84B94500D41DDB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4208E2C84B94500D41DDB /* DateExtension.swift */; };
 		BCA420912C855B3B00D41DDB /* IntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA420902C855B3B00D41DDB /* IntakeViewModel.swift */; };
 		BCA420972C855D5200D41DDB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = BCA420962C855D5200D41DDB /* DGCharts */; };
+		BCB005AB2C8AC877007656A4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB005AA2C8AC877007656A4 /* Extension.swift */; };
 		BCC489C22C88BA66006107A5 /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C12C88BA66006107A5 /* PersonModel.swift */; };
 		BCC489C42C88BC02006107A5 /* PersonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C32C88BC02006107A5 /* PersonDetailCell.swift */; };
 		BCC489C62C88C069006107A5 /* EditPersonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C52C88C069006107A5 /* EditPersonDetailCell.swift */; };
@@ -84,6 +85,7 @@
 		BCA4208C2C84B7C800D41DDB /* CalorieIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntake.swift; sourceTree = "<group>"; };
 		BCA4208E2C84B94500D41DDB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BCA420902C855B3B00D41DDB /* IntakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeViewModel.swift; sourceTree = "<group>"; };
+		BCB005AA2C8AC877007656A4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BCC489C12C88BA66006107A5 /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		BCC489C32C88BC02006107A5 /* PersonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailCell.swift; sourceTree = "<group>"; };
 		BCC489C52C88C069006107A5 /* EditPersonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonDetailCell.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				BCA4208E2C84B94500D41DDB /* DateExtension.swift */,
+				BCB005AA2C8AC877007656A4 /* Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */,
 				BCA4208F2C84B94500D41DDB /* DateExtension.swift in Sources */,
 				BCA4208B2C84B66C00D41DDB /* WaterIntake.swift in Sources */,
+				BCB005AB2C8AC877007656A4 /* Extension.swift in Sources */,
 				BC6829082C7B26E80085A3A5 /* FoodModel.swift in Sources */,
 				BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */,
 				BCD77FE72C808B1C000A408E /* NutritionDetailViewController.swift in Sources */,
