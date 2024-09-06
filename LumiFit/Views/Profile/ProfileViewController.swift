@@ -221,7 +221,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             navigationController?.pushViewController(destinationVC, animated: true)
         }
         if indexPath.row == 4{
-            var 
+            // Change Theme
         }
     }
 
