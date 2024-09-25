@@ -8,6 +8,7 @@
 import Foundation
 
 class CalorieViewModel {
+    static var shared = CalorieViewModel()
     private var totalCalories: Double {
         get {
             return UserDefaults.standard.double(forKey: "totalCalories")
@@ -31,11 +32,16 @@ class CalorieViewModel {
     }
     
     var progress: Double {
-        let progressValue = Double(totalCalories) / Double(dailyGoal)
-        return Double(String(format: "%.2f", progressValue)) ?? 0.0
+        guard dailyGoal != 0 else { return 0 }  // Avoid division by zero
+        return totalCalories / dailyGoal
     }
     
     func addCalories(_ calories: Double) {
         totalCalories += calories
+        NotificationCenter.default.post(name: .calorieProgressUpdated, object: nil)
+    }
+    
+    func resetCalories() {
+        totalCalories = 0
     }
 }

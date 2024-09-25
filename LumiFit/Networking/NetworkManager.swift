@@ -12,10 +12,10 @@ class NetworkManager {
     private let apiKey: String
     private let headers: HTTPHeaders
 
-    init() async throws {
+    init() throws {
         // Loading API Keys
         guard let key = ProcessInfo.processInfo.environment["CALORIE_NINJA_API_KEY"] else {
-            fatalError("API Key not found in environment variables")
+            throw NSError(domain: "NetworkManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "API Key not found in environment variables"])
         }
         
         self.apiKey = key
@@ -32,12 +32,10 @@ class NetworkManager {
                 switch response.result {
                 case .success(let data):
                     print("got data")
-                    // Print the raw data as a string to debug
                     if let jsonString = String(data: data, encoding: .utf8) {
                         print("Raw JSON response: \(jsonString)")
                     }
 
-                    // Attempt to decode the data
                     do {
                         let foodResponse = try JSONDecoder().decode(FoodResponse.self, from: data)
                         completion(.success(foodResponse))

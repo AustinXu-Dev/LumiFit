@@ -6,25 +6,131 @@
 //
 
 import UIKit
+import HealthKit
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var activityView: UIStackView!
     @IBOutlet weak var popularExerciseLabel: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var workoutProcessCollectionView: UICollectionView!
+    var dailyActivityCard: ActivityCardView!
+    var workoutsCard: ActivityCardView!
+    
     private var cardData: [ExerciseCardModel] = []
+    private var workoutProcessData: [WorkoutProcessModel] = [
+        WorkoutProcessModel(title: "Walk", count: 0, type: "Steps", image: "walk_icon"),
+        WorkoutProcessModel(title: "Exercise", count: 0, type: "Hours", image: "bicycle_icon"),
+        WorkoutProcessModel(title: "Calories", count: 0, type: "Kcal", image: "bowl_icon"),
+    ]
+    private var videoData: [URL] = [
+        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step1.mp4")!,
+        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step2.mp4")!,
+        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step3.mp4")!,
+        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step4.mp4")!
+    ]
+    
+    var calorieViewModel = CalorieViewModel.shared
+    var waterCalViewModel = WaterCalViewModel.shared
+    var intakeViewModel = IntakeViewModel.shared
+    
+    let healthStore = HealthKitManager.shared.healthStore
+    var stepCountQuery: HKObserverQuery?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        workoutProcessCollectionView.delegate = self
+        workoutProcessCollectionView.dataSource = self
 
         // Create a container view for the custom navigation bar item
         setUpNavigationItemUI()
         setUpActivityCardUI()
         setupCardData()
         setUpPopularExerciseUI()
+//        setupWorkoutProcessData()
+        Task{
+            await requestHealthAuthorization()
+        }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProgress), name: .calorieProgressUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProgress), name: .waterProgressUpdated, object: nil)
 
     }
+    
+    // MARK: - Request HealthKit Authorization
+    func requestHealthAuthorization() async {
+        // Use your HealthKitManager's async authorization request
+        await HealthKitManager.shared.requestHealthKitAuthorization()
+        // Start observing step count changes after authorization
+        fetchLatestHealthData()
+    }
+
+    // MARK: - Fetch Health Data
+    func fetchLatestHealthData() {
+        let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+        let exerciseType = HKQuantityType.quantityType(forIdentifier: .appleExerciseTime)!
+        let calorieType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!
+        
+        let startDate = Calendar.current.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictStartDate)
+        
+        // Define the queries for steps, exercise, and calories
+        let stepQuery = HKSampleQuery(sampleType: stepType, predicate: predicate, limit: 1, sortDescriptors: nil) { (query, results, error) in
+            guard let results = results as? [HKQuantitySample], let sample = results.first else {
+                print("Error fetching steps: \(String(describing: error))")
+                return
+            }
+            
+            let stepCount = sample.quantity.doubleValue(for: HKUnit.count())
+            DispatchQueue.main.async {
+                self.updateWorkoutProcessData(stepCount: stepCount, exerciseTime: nil, calories: nil)
+            }
+        }
+        
+        let exerciseQuery = HKSampleQuery(sampleType: exerciseType, predicate: predicate, limit: 1, sortDescriptors: nil) { (query, results, error) in
+            guard let results = results as? [HKQuantitySample], let sample = results.first else {
+                print("Error fetching exercise time: \(String(describing: error))")
+                return
+            }
+            
+            let exerciseMinutes = sample.quantity.doubleValue(for: HKUnit.minute())
+            DispatchQueue.main.async {
+                self.updateWorkoutProcessData(stepCount: nil, exerciseTime: exerciseMinutes, calories: nil)
+            }
+        }
+        
+        let calorieQuery = HKSampleQuery(sampleType: calorieType, predicate: predicate, limit: 1, sortDescriptors: nil) { (query, results, error) in
+            guard let results = results as? [HKQuantitySample], let sample = results.first else {
+                print("Error fetching calories: \(String(describing: error))")
+                return
+            }
+            
+            let caloriesBurned = sample.quantity.doubleValue(for: HKUnit.kilocalorie())
+            DispatchQueue.main.async {
+                self.updateWorkoutProcessData(stepCount: nil, exerciseTime: nil, calories: caloriesBurned)
+            }
+        }
+        
+        // Execute all queries
+        healthStore.execute(stepQuery)
+        healthStore.execute(exerciseQuery)
+        healthStore.execute(calorieQuery)
+    }
+
+    func updateWorkoutProcessData(stepCount: Double?, exerciseTime: Double?, calories: Double?) {
+        if let stepCount = stepCount {
+            self.workoutProcessData[0].count = stepCount // Updating steps
+        }
+        if let exerciseTime = exerciseTime {
+            self.workoutProcessData[1].count = exerciseTime // Updating exercise time
+        }
+        if let calories = calories {
+            self.workoutProcessData[2].count = calories // Updating calories
+        }
+
+        print("Updated workout process data", workoutProcessData)
+    }
+
 
     // MARK: - UI Setup Functions
     fileprivate func setUpNavigationItemUI(){
@@ -90,10 +196,10 @@ class HomeViewController: UIViewController {
     
     fileprivate func setUpActivityCardUI(){
         let dailyActivityCard = ActivityCardView(frame: CGRect(x: 50, y: 100, width: 150, height: 150))
-        dailyActivityCard.configure(image: UIImage(named: "foot_walk")!, title: "Daily Activity", backgroundColor: UIColor(named: "green_card")!, progress: 0.2)
+        dailyActivityCard.configure(image: UIImage(named: "foot_walk")!, title: "Calorie Intake", backgroundColor: UIColor(named: "green_card")!, progress: calorieViewModel.progress)
             
         let workoutsCard = ActivityCardView(frame: CGRect(x: 220, y: 100, width: 150, height: 150))
-        workoutsCard.configure(image: UIImage(systemName: "bicycle")!, title: "Workouts", backgroundColor: UIColor(named: "dark_green_card")!, progress: 0.6)
+        workoutsCard.configure(image: UIImage(named: "bicycle")!, title: "Water Intake", backgroundColor: UIColor(named: "dark_green_card")!, progress:         waterCalViewModel.progress)
         self.activityView.addArrangedSubview(dailyActivityCard)
         self.activityView.addArrangedSubview(workoutsCard)
         self.activityView.distribution = .equalCentering
@@ -106,7 +212,18 @@ class HomeViewController: UIViewController {
             workoutsCard.widthAnchor.constraint(equalToConstant: 150),
             workoutsCard.heightAnchor.constraint(equalToConstant: 180)
         ])
+        self.dailyActivityCard = dailyActivityCard
+        self.workoutsCard = workoutsCard
         
+    }
+    
+    @objc func updateProgress() {
+        dailyActivityCard?.updateProgress(to: calorieViewModel.progress)
+        workoutsCard?.updateProgress(to: waterCalViewModel.progress)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     fileprivate func setUpPopularExerciseUI(){
@@ -129,29 +246,60 @@ class HomeViewController: UIViewController {
             // Add more cards as needed
         ]
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+//    fileprivate func setupWorkoutProcessData(){
+//        workoutProcessData = [
+//            WorkoutProcessModel(title: "Walk", count: 0, type: "Steps", image: "walk_icon"),
+//            WorkoutProcessModel(title: "Exercise", count: 0, type: "Hours", image: "bicycle_icon"),
+//            WorkoutProcessModel(title: "Calories", count: 0, type: "Kcal", image: "bowl_icon"),
+//        ]
+//    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cardData.count
+        if collectionView == self.collectionView {
+            return cardData.count
+        } else if collectionView == self.workoutProcessCollectionView {
+            return workoutProcessData.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCardCell", for: indexPath) as! ExerciseCardCell
-        let cardModel = cardData[indexPath.item]
-        cell.configure(with: cardModel)
-        return cell
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCardCell", for: indexPath) as! ExerciseCardCell
+            let cardModel = cardData[indexPath.item]
+            cell.configure(with: cardModel)
+            return cell
+        } else if collectionView == self.workoutProcessCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutProcessCell", for: indexPath) as! WorkoutCardCell
+            let processModel = workoutProcessData[indexPath.item]
+            cell.configure(with: processModel)
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.collectionView{
+            let selectedData = videoData
+                    
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let videoVC = storyboard.instantiateViewController(withIdentifier: "videoPlayerVC") as? VideoViewController {
+                
+                // Pass the selected data to the new view controller
+                videoVC.videoURLs = selectedData
+                
+                // Push the new view controller onto the navigation stack
+                self.navigationController?.pushViewController(videoVC, animated: true)
+            }
+        }
+    }
     
+}
+
+extension Notification.Name {
+    static let calorieProgressUpdated = Notification.Name("calorieProgressUpdated")
+    static let waterProgressUpdated = Notification.Name("waterProgressUpdated")
 }

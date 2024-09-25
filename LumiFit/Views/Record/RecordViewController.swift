@@ -11,8 +11,8 @@ import DGCharts
 class RecordViewController: UIViewController, IntakeViewModelDelegate {
     
     let intakeViewModel = IntakeViewModel()
-    var calorieChartView: LineChartView!
-    var waterChartView: LineChartView!
+    var calorieChartView: BarChartView!
+    var waterChartView: BarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +38,12 @@ class RecordViewController: UIViewController, IntakeViewModelDelegate {
     
     func setupChartViews() {
         // Setup calorie chart view
-        calorieChartView = LineChartView()
+        calorieChartView = BarChartView()
         calorieChartView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(calorieChartView)
         
         // Setup water chart view
-        waterChartView = LineChartView()
+        waterChartView = BarChartView()
         waterChartView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(waterChartView)
         
@@ -61,58 +61,79 @@ class RecordViewController: UIViewController, IntakeViewModelDelegate {
         ])
     }
     
+//    func displayCalorieIntakeChart() {
+//        let startDate = Calendar.current.date(byAdding: .day, value: -90, to: Date())! // Match the 90-day window
+//        let endDate = Date()
+//        let history = intakeViewModel.getCalorieIntakeHistory(startDate: startDate, endDate: endDate)
+//
+//        var dataEntries: [BarChartDataEntry] = []
+//        
+//        for entry in history {
+//            let xValue = entry.date.timeIntervalSince1970
+//            let yValue = entry.totalCalories
+//            let dataEntry = BarChartDataEntry(x: xValue, y: yValue)
+//            dataEntries.append(dataEntry)
+//        }
+//
+//        let barDataSet = BarChartDataSet(entries: dataEntries, label: "Calorie Intake (kcal)")
+//        barDataSet.colors = [NSUIColor.blue] // Match the blue color in the image
+//        barDataSet.barBorderWidth = 0.5 // Slight border to make bars stand out
+//        barDataSet.barShadowColor = NSUIColor.gray // Add shadow for a similar effect
+//
+//        let barData = BarChartData(dataSet: barDataSet)
+//        
+//        // Bar chart styling for a cleaner look
+//        calorieChartView.data = barData
+//        calorieChartView.xAxis.labelPosition = .bottom
+//        calorieChartView.xAxis.valueFormatter = DateValueFormatter() // Format x-axis as dates
+//        calorieChartView.xAxis.drawGridLinesEnabled = false // Clean x-axis appearance
+//        calorieChartView.rightAxis.enabled = false // Hide right axis
+//        calorieChartView.leftAxis.axisMinimum = 0 // Ensure no negative values
+//        calorieChartView.legend.enabled = false // Hide legend for simplicity
+//        calorieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+//    }
+
     func displayCalorieIntakeChart() {
-        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
-        let endDate = Date()
-        let history = intakeViewModel.getCalorieIntakeHistory(startDate: startDate, endDate: endDate)
-        
-        var dataEntries: [ChartDataEntry] = []
-        
-        for entry in history {
-            let xValue = entry.date.timeIntervalSince1970
-            let yValue = entry.totalCalories
-            print("Calorie Data: \(entry.date), \(yValue)")  // Debugging: Print out the values
-            let dataEntry = ChartDataEntry(x: xValue, y: yValue)
-            dataEntries.append(dataEntry)
-        }
-        
-        let lineDataSet = LineChartDataSet(entries: dataEntries, label: "Calorie Intake (kcal)")
-        lineDataSet.colors = [NSUIColor.red] // Customize line color
-        lineDataSet.circleColors = [NSUIColor.red] // Customize circle color
-        lineDataSet.circleRadius = 4.0 // Customize circle radius
-        
-        let lineData = LineChartData(dataSet: lineDataSet)
-        
-        calorieChartView.data = lineData
+        let dummyData: [BarChartDataEntry] = [
+            BarChartDataEntry(x: 1, y: 2000),
+            BarChartDataEntry(x: 2, y: 1800),
+            BarChartDataEntry(x: 3, y: 2200),
+            BarChartDataEntry(x: 4, y: 2500)
+        ]
+
+        let barDataSet = BarChartDataSet(entries: dummyData, label: "Calorie Intake (kcal)")
+        barDataSet.colors = [NSUIColor.blue]
+
+        let barData = BarChartData(dataSet: barDataSet)
+        calorieChartView.data = barData
         calorieChartView.xAxis.labelPosition = .bottom
-        calorieChartView.xAxis.valueFormatter = DateValueFormatter() // Format x-axis as dates
+        calorieChartView.xAxis.drawGridLinesEnabled = false
+        calorieChartView.rightAxis.enabled = false
         calorieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 
-    
+
     func displayWaterIntakeChart() {
         let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
         let endDate = Date()
         let history = intakeViewModel.getWaterIntakeHistory(startDate: startDate, endDate: endDate)
         
-        var dataEntries: [ChartDataEntry] = []
+        var dataEntries: [BarChartDataEntry] = []
         
         for entry in history {
             let xValue = entry.date.timeIntervalSince1970
             let yValue = entry.totalIntake
             print("Water Data: \(entry.date), \(yValue)")  // Debugging: Print out the values
-            let dataEntry = ChartDataEntry(x: xValue, y: yValue)
+            let dataEntry = BarChartDataEntry(x: xValue, y: yValue)
             dataEntries.append(dataEntry)
         }
         
-        let lineDataSet = LineChartDataSet(entries: dataEntries, label: "Water Intake (ml)")
-        lineDataSet.colors = [NSUIColor.blue] // Customize line color
-        lineDataSet.circleColors = [NSUIColor.blue] // Customize circle color
-        lineDataSet.circleRadius = 4.0 // Customize circle radius
+        let barDataSet = BarChartDataSet(entries: dataEntries, label: "Water Intake (ml)")
+        barDataSet.colors = [NSUIColor.blue] // Customize bar color
         
-        let lineData = LineChartData(dataSet: lineDataSet)
+        let barData = BarChartData(dataSet: barDataSet)
         
-        waterChartView.data = lineData
+        waterChartView.data = barData
         waterChartView.xAxis.labelPosition = .bottom
         waterChartView.xAxis.valueFormatter = DateValueFormatter() // Format x-axis as dates
         waterChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)

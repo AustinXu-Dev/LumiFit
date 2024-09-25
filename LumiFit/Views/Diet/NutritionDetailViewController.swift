@@ -22,14 +22,15 @@ class NutritionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Initialize before loading the view
-        Task{
+        Task {
             do {
-                self.networkManager = try await NetworkManager()
+                self.networkManager = try NetworkManager()
             } catch {
-                fatalError("Failed to initialize NetworkManager: \(error.localizedDescription)")
+                print("Failed to initialize NetworkManager: \(error.localizedDescription)")
             }
         }
     }
+    
     
     @IBAction func calculateButtonTapped(_ sender: UIButton) {
         if let food = foodField.text, !food.isEmpty {
@@ -77,19 +78,3 @@ class NutritionDetailViewController: UIViewController {
     */
 
 }
-
-//        let alertController = UIAlertController(
-//            title: "Confirm",
-//            message: "Are you sure you want to add \(calculatedCalories) calories to your tracker?",
-//            preferredStyle: .alert
-//        )
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        alertController.addAction(cancelAction)
-//
-//        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-//            // Add to view model and show progress
-//            self.calorieViewModel?.addCalories(Double(self.calculatedCalories))
-//            self.performSegue(withIdentifier: "unwindToDiet", sender: self)
-//        }
-//        alertController.addAction(okAction)
-//        present(alertController, animated: true, completion: nil)

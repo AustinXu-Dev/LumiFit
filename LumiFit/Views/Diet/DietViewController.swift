@@ -12,9 +12,9 @@ class DietViewController: UIViewController {
     
     //MARK: - PROPERTIES
     var networkManager: NetworkManager?
-    var calorieViewModel = CalorieViewModel()
-    var waterCalViewModel = WaterCalViewModel()
-    var intakeViewModel = IntakeViewModel()  // Add IntakeViewModel instance
+    var calorieViewModel = CalorieViewModel.shared
+    var waterCalViewModel = WaterCalViewModel.shared
+    var intakeViewModel = IntakeViewModel.shared 
     @IBOutlet weak var tableView: UITableView!
     
     private var cells: [(cellId: String, cellHeight: CGFloat)] = [(cellId: "nutrition_cell", cellHeight: 235), (cellId: "water_cell", cellHeight: 210)]
@@ -30,6 +30,7 @@ class DietViewController: UIViewController {
         
         // Set up IntakeViewModel delegate to observe changes
         intakeViewModel.delegate = self
+        
     }
     
     // MARK: - Validation for goal setting
@@ -50,10 +51,15 @@ class DietViewController: UIViewController {
         let setAction = UIAlertAction(title: "Set Goal", style: .default) { _ in
             if let goalText = alert.textFields?.first?.text, let goal = Double(goalText) {
                 viewModel.setGoal(goal)
+                self.tableView.reloadData()
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        // If user cancel, set the default goal to 2500
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            viewModel.setGoal(2500)
+            self.tableView.reloadData()
+        }
         
         alert.addAction(setAction)
         alert.addAction(cancelAction)
@@ -143,12 +149,14 @@ extension DietViewController: IntakeViewModelDelegate {
     func didUpdateCalorieIntake() {
         // Handle any UI updates or refreshes specific to the DietViewController
         // if needed, or simply ensure the data is correctly handled.
+        tableView.reloadData()
         print("Calorie intake updated.")
     }
     
     func didUpdateWaterIntake() {
         // Handle any UI updates or refreshes specific to the DietViewController
         // if needed, or simply ensure the data is correctly handled.
+        tableView.reloadData()
         print("Water intake updated.")
     }
 }

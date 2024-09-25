@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-extension UIViewController: PHPickerViewControllerDelegate {
+extension UIViewController: @retroactive PHPickerViewControllerDelegate {
     
     func configureImagePicker() {
         var configuration = PHPickerConfiguration()

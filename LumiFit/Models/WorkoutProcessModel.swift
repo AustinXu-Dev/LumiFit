@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct WorkoutProcessModel{
+    let title: String
+    var count: Double
+    let type: String
+    let image: String
+}

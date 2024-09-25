@@ -14,51 +14,49 @@ protocol IntakeViewModelDelegate: AnyObject {
 }
 
 class IntakeViewModel {
-    
+    static let shared = IntakeViewModel()
     weak var delegate: IntakeViewModelDelegate?
     
+    // Reference to the shared instances of other view models
+    let waterCalViewModel = WaterCalViewModel.shared
+    let calorieViewModel = CalorieViewModel.shared
+
     // MARK: - Calorie Intake Methods
-    
+
     func addCalorieIntake(amount: Double) {
         let realm = try! Realm()
         let today = Date().startOfDay
         
-        // Assuming that the input is in calories and needs to be converted to kilocalories
-        let kcalAmount = amount / 1000
+        let kcalAmount = amount / 1000  // Convert input to kilocalories
         
         if let existingEntry = realm.objects(CalorieIntake.self).filter("date == %@", today).first {
-            // Update the existing entry for today
             try! realm.write {
-                print("Existing entry before update:", existingEntry.totalCalories)
                 existingEntry.totalCalories = kcalAmount
-                print("Existing entry after update:", existingEntry.totalCalories)
             }
         } else {
-            // Create a new entry for today
             let newEntry = CalorieIntake(date: today, totalCalories: kcalAmount)
-            print("New entry created with calories:", newEntry.totalCalories)
             try! realm.write {
                 realm.add(newEntry)
             }
         }
         
-        delegate?.didUpdateCalorieIntake() // Notify the delegate about the update
+        delegate?.didUpdateCalorieIntake()  // Notify delegate
     }
-
-
 
     func resetTodayCalorieIntake() {
         let realm = try! Realm()
         let today = Date().startOfDay
         
         if let entry = realm.objects(CalorieIntake.self).filter("date == %@", today).first {
-            // Reset the calorie intake for today
             try! realm.write {
                 entry.totalCalories = 0.0
             }
         }
+
+        // Reset calorie model
+        calorieViewModel.resetCalories()
         
-        delegate?.didUpdateCalorieIntake() // Notify the delegate about the reset
+        delegate?.didUpdateCalorieIntake()  // Notify delegate
     }
 
     func getCalorieIntakeHistory(startDate: Date, endDate: Date) -> Results<CalorieIntake> {
@@ -66,47 +64,51 @@ class IntakeViewModel {
         let predicate = NSPredicate(format: "date BETWEEN {%@, %@}", startDate.startOfDay as CVarArg, endDate.startOfDay as CVarArg)
         return realm.objects(CalorieIntake.self).filter(predicate).sorted(byKeyPath: "date", ascending: true)
     }
-    
+
     // MARK: - Water Intake Methods
-    
+
     func addWaterIntake(amount: Double) {
         let realm = try! Realm()
         let today = Date().startOfDay
         
         if let existingEntry = realm.objects(WaterIntake.self).filter("date == %@", today).first {
-            // Update the existing entry for today
             try! realm.write {
                 existingEntry.totalIntake = amount
             }
         } else {
-            // Create a new entry for today
             let newEntry = WaterIntake(date: today, totalIntake: amount)
             try! realm.write {
                 realm.add(newEntry)
             }
         }
         
-        delegate?.didUpdateWaterIntake() // Notify the delegate about the update
+        delegate?.didUpdateWaterIntake()  // Notify delegate
     }
-
 
     func resetTodayWaterIntake() {
         let realm = try! Realm()
         let today = Date().startOfDay
         
         if let entry = realm.objects(WaterIntake.self).filter("date == %@", today).first {
-            // Reset the water intake for today
             try! realm.write {
                 entry.totalIntake = 0.0
             }
         }
+
+        // Reset water model
+        waterCalViewModel.glassCount = 0  // Reset the glass count in WaterCalViewModel
         
-        delegate?.didUpdateWaterIntake() // Notify the delegate about the reset
+        delegate?.didUpdateWaterIntake()  // Notify delegate
     }
 
     func getWaterIntakeHistory(startDate: Date, endDate: Date) -> Results<WaterIntake> {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "date BETWEEN {%@, %@}", startDate.startOfDay as CVarArg, endDate.startOfDay as CVarArg)
         return realm.objects(WaterIntake.self).filter(predicate).sorted(byKeyPath: "date", ascending: true)
+    }
+
+    func resetWaterGoal() {
+        waterCalViewModel.resetWaterGoal()  // Call reset method from WaterCalViewModel
+        delegate?.didUpdateWaterIntake()  // Notify delegate
     }
 }

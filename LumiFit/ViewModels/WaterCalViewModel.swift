@@ -8,6 +8,7 @@
 import Foundation
 
 class WaterCalViewModel {
+    static var shared = WaterCalViewModel()
     
     var glassCount: Double{
         get {
@@ -23,7 +24,7 @@ class WaterCalViewModel {
     
     var dailyGoal: Double {
         get {
-            return UserDefaults.standard.double(forKey: "waterGoal") != 0 ? UserDefaults.standard.double(forKey: "waterGoal") : 3700
+            return UserDefaults.standard.double(forKey: "waterGoal")
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "waterGoal")
@@ -40,9 +41,15 @@ class WaterCalViewModel {
     
     func addWaterAmount(_ waterAmount: Double) {
         glassCount += waterAmount
+        NotificationCenter.default.post(name: .waterProgressUpdated, object: nil)
     }
     
     func setGoal(_ goal: Double) {
         dailyGoal = goal
+        NotificationCenter.default.post(name: .waterProgressUpdated, object: nil)
+    }
+    
+    func resetWaterGoal() {
+        dailyGoal = 0 // Reset to default goal (or any desired value)
     }
 }

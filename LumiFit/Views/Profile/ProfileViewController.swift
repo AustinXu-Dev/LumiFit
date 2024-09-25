@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var profileCardView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var editButton: UIImageView!
     
@@ -41,6 +42,9 @@ class ProfileViewController: UIViewController {
             nameLabel.text = person?.name 
         }
         
+        setUpProfileCardUI()
+        applyTheme()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +56,7 @@ class ProfileViewController: UIViewController {
             nameLabel.text = person?.name
             collectionView.reloadData()
         }
+        applyTheme()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,6 +73,16 @@ class ProfileViewController: UIViewController {
             collectionView.reloadData()
         }
     }
+    
+    fileprivate func applyTheme() {
+        let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
+        overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+    }
+    
+    fileprivate func setUpProfileCardUI(){
+        profileCardView.layer.cornerRadius = 20
+    }
+
     
     // Helper function to load the image from the documents directory
     func loadImageFromDocumentsDirectory(filePath: String) -> UIImage? {
@@ -222,6 +237,35 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         if indexPath.row == 4{
             // Change Theme
+            let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
+                    
+                    // Toggle the theme
+            let newTheme = !isDarkMode
+
+            // Apply the theme globally by updating the SceneDelegate
+            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+               let window = sceneDelegate.window {
+                window.overrideUserInterfaceStyle = newTheme ? .dark : .light
+            }
+            let alert = UIAlertController(title: "Change Theme", message: "Do you want to change your theme?", preferredStyle: .alert)
+            
+            
+            let setAction = UIAlertAction(title: "OK", style: .default) { _ in
+                UserDefaults.standard.set(newTheme, forKey: "isDarkModeEnabled")
+                self.applyTheme()
+                        
+                // Optionally, force layout updates
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            }
+            
+            // If user cancel, set the default goal to 2500
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            alert.addAction(setAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
 

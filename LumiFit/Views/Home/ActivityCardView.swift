@@ -43,7 +43,7 @@ class ActivityCardView: UIView {
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 50, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
         backgroundLayer.path = circularPath.cgPath
         backgroundLayer.strokeColor = UIColor.lightGray.cgColor
-        backgroundLayer.lineWidth = 10
+        backgroundLayer.lineWidth = 5
         backgroundLayer.fillColor = UIColor.clear.cgColor
         backgroundLayer.lineCap = .round
         backgroundLayer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY - 10)
@@ -52,7 +52,7 @@ class ActivityCardView: UIView {
         // Set up progress circle layer
         progressLayer.path = circularPath.cgPath
         progressLayer.strokeColor = UIColor.white.cgColor
-        progressLayer.lineWidth = 10
+        progressLayer.lineWidth = 5
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineCap = .round
         progressLayer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY - 10)
@@ -87,6 +87,20 @@ class ActivityCardView: UIView {
     
     private func setProgress(to progress: CGFloat) {
         progressLayer.strokeEnd = progress
-        progressLayer.strokeColor = progress > 0.7 ? UIColor.white.cgColor : UIColor.gray.cgColor
+        progressLayer.strokeColor = UIColor.white.cgColor
     }
+    
+    func updateProgress(to newProgress: CGFloat, withAnimation: Bool = true, duration: CFTimeInterval = 0.5) {
+            if withAnimation {
+                let animation = CABasicAnimation(keyPath: "strokeEnd")
+                animation.fromValue = progressLayer.strokeEnd
+                animation.toValue = newProgress
+                animation.duration = duration
+                progressLayer.add(animation, forKey: "progressAnimation")
+            }
+            
+            // Update the progress value
+            progressLayer.strokeEnd = newProgress
+        }
+    
 }

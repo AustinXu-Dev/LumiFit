@@ -34,7 +34,10 @@ class NutritionTableViewCell: UITableViewCell {
     
     func configure(with viewModel: CalorieViewModel) {
         calorieLabel.text = "\(viewModel.currentCalories)"
-        calorieProgressView.progress = Float(viewModel.progress)
+        // Ensure progress is between 0.0 and 1.0
+        let progress = min(max(Float(viewModel.progress), 0.0), 1.0)
+        calorieProgressView.progress = progress
     }
+
 
 }

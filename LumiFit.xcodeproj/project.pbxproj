@@ -13,13 +13,14 @@
 		BC393A802C78604C00BC0281 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7F2C78604C00BC0281 /* RecordViewController.swift */; };
 		BC393A822C78605400BC0281 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A812C78605400BC0281 /* ProfileViewController.swift */; };
 		BC45124F2C855EB800453720 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = BCA420882C84B5B800D41DDB /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BC5418CA2C9B11B700B623BB /* WorkoutProcessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5418C92C9B11B600B623BB /* WorkoutProcessModel.swift */; };
+		BC5418CC2C9B144B00B623BB /* WorkoutCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5418CB2C9B144B00B623BB /* WorkoutCardCell.swift */; };
 		BC6829082C7B26E80085A3A5 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829072C7B26E80085A3A5 /* FoodModel.swift */; };
 		BC68290B2C7B27DA0085A3A5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC68290A2C7B27DA0085A3A5 /* Alamofire */; };
 		BC68290D2C7B285E0085A3A5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68290C2C7B285E0085A3A5 /* NetworkManager.swift */; };
 		BC6829122C7B60A20085A3A5 /* ExerciseCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829112C7B60A20085A3A5 /* ExerciseCardCell.swift */; };
 		BC6829142C7B62C40085A3A5 /* ExerciseCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829132C7B62C40085A3A5 /* ExerciseCardModel.swift */; };
 		BC6829182C7B6E6E0085A3A5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6829172C7B6E6E0085A3A5 /* VideoViewController.swift */; };
-		BC6829192C7B6EAC0085A3A5 /* yoga_video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BC6829162C7B6DEF0085A3A5 /* yoga_video1.mp4 */; };
 		BC70A25D2C72E74D0002651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25C2C72E74D0002651E /* AppDelegate.swift */; };
 		BC70A25F2C72E74D0002651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A25E2C72E74D0002651E /* SceneDelegate.swift */; };
 		BC70A2612C72E74D0002651E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC70A2602C72E74D0002651E /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		BC70A2662C72E7500002651E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2652C72E7500002651E /* Assets.xcassets */; };
 		BC70A2692C72E7500002651E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC70A2682C72E7500002651E /* Base */; };
 		BC741B822C898960004F0EE7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC741B812C898960004F0EE7 /* EditProfileViewController.swift */; };
+		BC8499F92CA13FDE00E25FF1 /* VdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8499F82CA13FDE00E25FF1 /* VdViewModel.swift */; };
 		BCA420842C83794C00D41DDB /* WaterCalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */; };
 		BCA420892C84B5B800D41DDB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCA420882C84B5B800D41DDB /* RealmSwift */; };
 		BCA4208B2C84B66C00D41DDB /* WaterIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4208A2C84B66B00D41DDB /* WaterIntake.swift */; };
@@ -39,6 +41,7 @@
 		BCC489C42C88BC02006107A5 /* PersonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C32C88BC02006107A5 /* PersonDetailCell.swift */; };
 		BCC489C62C88C069006107A5 /* EditPersonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC489C52C88C069006107A5 /* EditPersonDetailCell.swift */; };
 		BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8FB812C78B6220096769E /* ActivityCardView.swift */; };
+		BCD237B52C97DA5900C14463 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD237B42C97DA5900C14463 /* HealthKitManager.swift */; };
 		BCD77FE32C808320000A408E /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */; };
 		BCD77FE52C808330000A408E /* WaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE42C808330000A408E /* WaterTableViewCell.swift */; };
 		BCD77FE72C808B1C000A408E /* NutritionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD77FE62C808B1C000A408E /* NutritionDetailViewController.swift */; };
@@ -65,11 +68,12 @@
 		BC393A7D2C78604300BC0281 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		BC393A7F2C78604C00BC0281 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		BC393A812C78605400BC0281 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BC5418C92C9B11B600B623BB /* WorkoutProcessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutProcessModel.swift; sourceTree = "<group>"; };
+		BC5418CB2C9B144B00B623BB /* WorkoutCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardCell.swift; sourceTree = "<group>"; };
 		BC6829072C7B26E80085A3A5 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		BC68290C2C7B285E0085A3A5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BC6829112C7B60A20085A3A5 /* ExerciseCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardCell.swift; sourceTree = "<group>"; };
 		BC6829132C7B62C40085A3A5 /* ExerciseCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardModel.swift; sourceTree = "<group>"; };
-		BC6829162C7B6DEF0085A3A5 /* yoga_video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = yoga_video1.mp4; sourceTree = "<group>"; };
 		BC6829172C7B6E6E0085A3A5 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		BC70A2592C72E74D0002651E /* LumiFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LumiFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC70A25C2C72E74D0002651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		BC70A2682C72E7500002651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC70A26A2C72E7500002651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC741B812C898960004F0EE7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		BC8499F82CA13FDE00E25FF1 /* VdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VdViewModel.swift; sourceTree = "<group>"; };
 		BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCalViewModel.swift; sourceTree = "<group>"; };
 		BCA4208A2C84B66B00D41DDB /* WaterIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntake.swift; sourceTree = "<group>"; };
 		BCA4208C2C84B7C800D41DDB /* CalorieIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntake.swift; sourceTree = "<group>"; };
@@ -90,6 +95,8 @@
 		BCC489C32C88BC02006107A5 /* PersonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailCell.swift; sourceTree = "<group>"; };
 		BCC489C52C88C069006107A5 /* EditPersonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonDetailCell.swift; sourceTree = "<group>"; };
 		BCC8FB812C78B6220096769E /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
+		BCD237B32C97D33D00C14463 /* LumiFit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LumiFit.entitlements; sourceTree = "<group>"; };
+		BCD237B42C97DA5900C14463 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
 		BCD77FE42C808330000A408E /* WaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTableViewCell.swift; sourceTree = "<group>"; };
 		BCD77FE62C808B1C000A408E /* NutritionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +125,7 @@
 				BCA4208A2C84B66B00D41DDB /* WaterIntake.swift */,
 				BCA4208C2C84B7C800D41DDB /* CalorieIntake.swift */,
 				BCC489C12C88BA66006107A5 /* PersonModel.swift */,
+				BC5418C92C9B11B600B623BB /* WorkoutProcessModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 				BCD77FE82C809370000A408E /* CalorieViewModel.swift */,
 				BCA420832C83794C00D41DDB /* WaterCalViewModel.swift */,
 				BCA420902C855B3B00D41DDB /* IntakeViewModel.swift */,
+				BC8499F82CA13FDE00E25FF1 /* VdViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 				BCC8FB812C78B6220096769E /* ActivityCardView.swift */,
 				BC6829112C7B60A20085A3A5 /* ExerciseCardCell.swift */,
 				BC6829172C7B6E6E0085A3A5 /* VideoViewController.swift */,
+				BC5418CB2C9B144B00B623BB /* WorkoutCardCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -181,7 +191,6 @@
 		BC6829152C7B6DDF0085A3A5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				BC6829162C7B6DEF0085A3A5 /* yoga_video1.mp4 */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -205,6 +214,7 @@
 		BC70A25B2C72E74D0002651E /* LumiFit */ = {
 			isa = PBXGroup;
 			children = (
+				BCD237B32C97D33D00C14463 /* LumiFit.entitlements */,
 				BC6829152C7B6DDF0085A3A5 /* Resource */,
 				BCC8FB832C78B7180096769E /* App */,
 				BC393A832C78606200BC0281 /* Views */,
@@ -258,6 +268,7 @@
 		BCC8FB852C78B7670096769E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BCD237B42C97DA5900C14463 /* HealthKitManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -335,7 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC70A2662C72E7500002651E /* Assets.xcassets in Resources */,
-				BC6829192C7B6EAC0085A3A5 /* yoga_video1.mp4 in Resources */,
 				BC70A2692C72E7500002651E /* Base in Resources */,
 				BC70A2642C72E74D0002651E /* Base in Resources */,
 			);
@@ -365,6 +375,8 @@
 				BCD77FE52C808330000A408E /* WaterTableViewCell.swift in Sources */,
 				BCC489C62C88C069006107A5 /* EditPersonDetailCell.swift in Sources */,
 				BCD77FE92C809370000A408E /* CalorieViewModel.swift in Sources */,
+				BCD237B52C97DA5900C14463 /* HealthKitManager.swift in Sources */,
+				BC8499F92CA13FDE00E25FF1 /* VdViewModel.swift in Sources */,
 				BCC489C42C88BC02006107A5 /* PersonDetailCell.swift in Sources */,
 				BC6829182C7B6E6E0085A3A5 /* VideoViewController.swift in Sources */,
 				BC6829142C7B62C40085A3A5 /* ExerciseCardModel.swift in Sources */,
@@ -374,6 +386,8 @@
 				BCB005AB2C8AC877007656A4 /* Extension.swift in Sources */,
 				BC6829082C7B26E80085A3A5 /* FoodModel.swift in Sources */,
 				BCC8FB822C78B6220096769E /* ActivityCardView.swift in Sources */,
+				BC5418CA2C9B11B700B623BB /* WorkoutProcessModel.swift in Sources */,
+				BC5418CC2C9B144B00B623BB /* WorkoutCardCell.swift in Sources */,
 				BCD77FE72C808B1C000A408E /* NutritionDetailViewController.swift in Sources */,
 				BC741B822C898960004F0EE7 /* EditProfileViewController.swift in Sources */,
 			);
@@ -525,6 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LumiFit/LumiFit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A89P8LLWX2;
@@ -558,6 +573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LumiFit/LumiFit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A89P8LLWX2;
