@@ -47,7 +47,6 @@ class HomeViewController: UIViewController {
         setUpActivityCardUI()
         setupCardData()
         setUpPopularExerciseUI()
-//        setupWorkoutProcessData()
         Task{
             await requestHealthAuthorization()
         }
@@ -246,14 +245,6 @@ class HomeViewController: UIViewController {
             // Add more cards as needed
         ]
     }
-    
-//    fileprivate func setupWorkoutProcessData(){
-//        workoutProcessData = [
-//            WorkoutProcessModel(title: "Walk", count: 0, type: "Steps", image: "walk_icon"),
-//            WorkoutProcessModel(title: "Exercise", count: 0, type: "Hours", image: "bicycle_icon"),
-//            WorkoutProcessModel(title: "Calories", count: 0, type: "Kcal", image: "bowl_icon"),
-//        ]
-//    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{

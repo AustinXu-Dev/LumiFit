@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class CalorieViewModel {
     static var shared = CalorieViewModel()
@@ -39,9 +40,35 @@ class CalorieViewModel {
     func addCalories(_ calories: Double) {
         totalCalories += calories
         NotificationCenter.default.post(name: .calorieProgressUpdated, object: nil)
+        if totalCalories == 0 {
+            scheduleCalorieZeroNotification()
+        }
     }
     
     func resetCalories() {
         totalCalories = 0
+        scheduleCalorieZeroNotification()
+
+    }
+    
+    private func scheduleCalorieZeroNotification() {
+        // Create notification content
+        let content = UNMutableNotificationContent()
+        content.title = "No Calories Logged!"
+        content.body = "Your current calorie count is zero. Time to add some food!"
+        content.sound = UNNotificationSound.default
+        
+        // Create the trigger (instant)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        // Create the request
+        let request = UNNotificationRequest(identifier: "calorieZeroNotification", content: content, trigger: trigger)
+        
+        // Schedule the notification
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            }
+        }
     }
 }

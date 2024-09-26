@@ -8,9 +8,10 @@
 import UIKit
 import RealmSwift
 import HealthKit
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     let healthKitManager = HealthKitManager.shared
 
@@ -49,7 +50,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Task {
             await healthKitManager.requestHealthKitAuthorization()
         }
+        
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("Error requesting notification permissions: \(error.localizedDescription)")
+            }
+        }
+                
         return true
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound]) // Show notification when the app is in the foreground
     }
 
     // MARK: UISceneSession Lifecycle

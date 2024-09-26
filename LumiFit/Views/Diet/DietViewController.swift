@@ -150,6 +150,7 @@ extension DietViewController: IntakeViewModelDelegate {
         // Handle any UI updates or refreshes specific to the DietViewController
         // if needed, or simply ensure the data is correctly handled.
         tableView.reloadData()
+        checkCalGoalAchievement()
         print("Calorie intake updated.")
     }
     
@@ -157,7 +158,76 @@ extension DietViewController: IntakeViewModelDelegate {
         // Handle any UI updates or refreshes specific to the DietViewController
         // if needed, or simply ensure the data is correctly handled.
         tableView.reloadData()
+        checkWaterGoalAchievement()
         print("Water intake updated.")
     }
+    
+    func checkCalGoalAchievement() {
+        if calorieViewModel.progress >= 1 {
+            showGoalAchievedAlert(for: "calorie")
+        }
+    }
+    
+    func checkWaterGoalAchievement() {
+        if waterCalViewModel.progress >= 1 {
+            showGoalAchievedAlert(for: "water")
+        }
+    }
+
+    
+    func showGoalAchievedAlert(for name: String) {
+        // Create the alert controller with no message to allow more space
+        let alertController = UIAlertController(title: "YAY!", message: nil, preferredStyle: .alert)
+
+        // Create a custom view that holds the image and label
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+
+        // Image View Setup
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "yay") // Replace with your own image
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        customView.addSubview(imageView)
+
+        // Label Setup
+        let label = UILabel()
+        label.text = "You have achieved your daily \(name) goal!"
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        customView.addSubview(label)
+
+        // Add custom view to the alert controller
+        alertController.view.addSubview(customView)
+
+        // Set constraints for imageView
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: customView.topAnchor, constant: 10),
+            imageView.centerXAnchor.constraint(equalTo: customView.centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 60),
+            imageView.heightAnchor.constraint(equalToConstant: 60),
+            
+            // Label constraints
+            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            label.leftAnchor.constraint(equalTo: customView.leftAnchor, constant: 10),
+            label.rightAnchor.constraint(equalTo: customView.rightAnchor, constant: -10),
+            label.bottomAnchor.constraint(equalTo: customView.bottomAnchor, constant: -10)
+        ])
+
+        // Create the Done action
+        let doneAction = UIAlertAction(title: "Done", style: .default, handler: nil)
+        alertController.addAction(doneAction)
+
+        // Set the custom view as the content of the alert controller
+        alertController.view.addSubview(customView)
+
+        // Set size of alert controller's content view
+        let height = NSLayoutConstraint(item: alertController.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
+        alertController.view.addConstraint(height)
+
+        // Present the alert
+        self.present(alertController, animated: true, completion: nil)
+    }
+
 }
 
