@@ -19,3 +19,4 @@ class CalorieIntake: Object {
         self.totalCalories = totalCalories
     }
 }
+
