@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L4H-Sr-4FD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L4H-Sr-4FD">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -28,13 +28,13 @@
                                                 <rect key="frame" x="5" y="10" width="383" height="230"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yx-cd-PNb">
-                                                        <rect key="frame" x="10" y="7.9999999999999982" width="363" height="20.333333333333329"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="10" y="8" width="363" height="20"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAx-tl-VRK">
-                                                        <rect key="frame" x="23" y="38.333333333333343" width="337" height="160"/>
+                                                        <rect key="frame" x="23" y="38" width="337" height="160"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="160" id="pFl-LX-BJz"/>
                                                         </constraints>
@@ -788,8 +788,8 @@
                                                                     <color key="textColor" red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waterbottle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eBn-1E-uLZ">
-                                                                    <rect key="frame" x="328" y="23.333333333333332" width="35" height="36.333333333333343"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass" translatesAutoresizingMaskIntoConstraints="NO" id="eBn-1E-uLZ">
+                                                                    <rect key="frame" x="328" y="23.666666666666671" width="35" height="35"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="5Ax-Z1-E8e"/>
                                                                         <constraint firstAttribute="width" constant="35" id="duP-Ln-RF0"/>
@@ -1064,7 +1064,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="t9x-UJ-Ndq" kind="relationship" relationship="viewControllers" id="3fJ-hd-6So"/>
-                        <segue destination="IA8-8u-yUS" kind="relationship" relationship="viewControllers" id="FRZ-fq-fnd"/>
                         <segue destination="DJi-f3-FS7" kind="relationship" relationship="viewControllers" id="2vf-06-h1Y"/>
                         <segue destination="Mdd-PN-Etq" kind="relationship" relationship="viewControllers" id="kst-Bw-f4N"/>
                     </connections>
@@ -1072,22 +1071,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwE-YF-eRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="113.74045801526717" y="-27.464788732394368"/>
-        </scene>
-        <!--Record-->
-        <scene sceneID="Ywj-xq-Clh">
-            <objects>
-                <viewController id="dg5-LE-vFW" customClass="RecordViewController" customModule="LumiFit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VQT-w7-HRM">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="7gu-Tp-FiT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Record" id="1V4-In-98V"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EWt-r8-fFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1962.5954198473282" y="-53.521126760563384"/>
         </scene>
         <!--Item-->
         <scene sceneID="dTh-Rh-g1g">
@@ -1127,25 +1110,6 @@
             </objects>
             <point key="canvasLocation" x="1035.8778625954199" y="636.61971830985919"/>
         </scene>
-        <!--Record-->
-        <scene sceneID="It5-FB-qsk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IA8-8u-yUS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" image="chart.bar" catalog="system" selectedImage="chart.bar.fill" id="bGP-dv-2VM"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qQh-BM-hxF">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="dg5-LE-vFW" kind="relationship" relationship="rootViewController" id="2SC-TL-6Vt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xzh-JA-L7z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1035.8778625954199" y="-53.521126760563384"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="V8Q-Ml-Z4j">
             <objects>
@@ -1167,8 +1131,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chart.bar" catalog="system" width="128" height="89"/>
-        <image name="chart.bar.fill" catalog="system" width="128" height="90"/>
+        <image name="glass" width="50" height="50"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
@@ -1176,7 +1139,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="takeoutbag.and.cup.and.straw" catalog="system" width="128" height="114"/>
         <image name="takeoutbag.and.cup.and.straw.fill" catalog="system" width="128" height="114"/>
-        <image name="waterbottle.fill" catalog="system" width="78" height="128"/>
         <namedColor name="dark_green_card">
             <color red="0.22745098039215686" green="0.396078431372549" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -177,7 +177,7 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -212,15 +212,12 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
             switch indexPath.row {
             case 3:
-                cell.imageView.image = UIImage(systemName: "gearshape.fill")
+                cell.imageView.image = UIImage(named: "gear_icon")
                 cell.label.text = "Edit Profile Info"
                 
             case 4:
-                cell.imageView.image = UIImage(named: "themeIcon")
+                cell.imageView.image = UIImage(named: "theme_icon")
                 cell.label.text = "Change Theme"
-            case 5:
-                cell.imageView.image = UIImage(named: "translateIcon")
-                cell.label.text = "Change Languages"
             default:
                 break
             }

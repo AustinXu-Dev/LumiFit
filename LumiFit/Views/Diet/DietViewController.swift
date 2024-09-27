@@ -8,6 +8,11 @@
 import UIKit
 import Alamofire
 
+struct Item {
+    var date: String
+    var calories: Int
+}
+
 class DietViewController: UIViewController {
     
     //MARK: - PROPERTIES
@@ -20,6 +25,7 @@ class DietViewController: UIViewController {
     private var cells: [(cellId: String, cellHeight: CGFloat)] = [(cellId: "nutrition_cell", cellHeight: 235), (cellId: "water_cell", cellHeight: 210)]
     private var goToMealSegueId = "meal_detail"
     private var goToWaterSegueId = "water_detail"
+    var items: [Item] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +36,99 @@ class DietViewController: UIViewController {
         
         // Set up IntakeViewModel delegate to observe changes
         intakeViewModel.delegate = self
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
+        self.navigationItem.rightBarButtonItem = shareButton
         
     }
+    
+    @objc func shareButtonTapped() {
+        // Create an action sheet for the user to choose between exporting water or calorie intake
+        let actionSheet = UIAlertController(title: "Export Data", message: "Choose what you would like to export:", preferredStyle: .actionSheet)
+        
+        // Export Water Intake Option
+        let exportWaterAction = UIAlertAction(title: "Export Water Intake", style: .default) { _ in
+            self.exportWaterIntake()
+        }
+        
+        // Export Calorie Intake Option
+        let exportCalorieAction = UIAlertAction(title: "Export Calorie Intake", style: .default) { _ in
+            self.exportCalorieIntake()
+        }
+        
+        // Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        // Add actions to the action sheet
+        actionSheet.addAction(exportWaterAction)
+        actionSheet.addAction(exportCalorieAction)
+        actionSheet.addAction(cancelAction)
+        
+        // Present the action sheet
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+
+
+    func exportWaterIntake() {
+        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        let endDate = Date()
+        let waterHistory = intakeViewModel.getWaterIntakeHistory(startDate: startDate, endDate: endDate)
+        
+        // Convert the water intake data to CSV or any exportable format
+        var csvText = "Date,Total Water Intake\n"
+        for item in waterHistory {
+            let date = DateFormatter.localizedString(from: item.date, dateStyle: .short, timeStyle: .none)
+            let newLine = "\(date),\(item.totalIntake) ml\n"
+            csvText.append(newLine)
+        }
+        
+        // Create a temporary file for the CSV data
+        let fileName = "WaterIntake.csv"
+        let path = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+        
+        do {
+            try csvText.write(to: path, atomically: true, encoding: .utf8)
+            shareFile(path: path)
+        } catch {
+            print("Failed to create file: \(error)")
+        }
+    }
+    
+    func exportCalorieIntake() {
+        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        let endDate = Date()
+        let calorieHistory = intakeViewModel.getCalorieIntakeHistory(startDate: startDate, endDate: endDate)
+        
+        // Convert the calorie intake data to CSV or any exportable format
+        var csvText = "Date,Total Calorie Intake\n"
+        for item in calorieHistory {
+            let date = DateFormatter.localizedString(from: item.date, dateStyle: .short, timeStyle: .none)
+            let newLine = "\(date),\(item.totalCalories) kcal\n"
+            csvText.append(newLine)
+        }
+        
+        // Create a temporary file for the CSV data
+        let fileName = "CalorieIntake.csv"
+        let path = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+        
+        do {
+            try csvText.write(to: path, atomically: true, encoding: .utf8)
+            shareFile(path: path)
+        } catch {
+            print("Failed to create file: \(error)")
+        }
+    }
+
+    func shareFile(path: URL) {
+        let activityViewController = UIActivityViewController(activityItems: [path], applicationActivities: nil)
+        
+        // Exclude certain activities if needed
+        activityViewController.excludedActivityTypes = [.addToReadingList, .assignToContact]
+        
+        // Present the activity view controller to share the file
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+
+
     
     // MARK: - Validation for goal setting
     func checkAndPromptForGoalSetting(viewModel: WaterCalViewModel) {
