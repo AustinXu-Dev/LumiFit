@@ -306,7 +306,7 @@
                                                     <constraint firstItem="aIW-7D-0DX" firstAttribute="top" secondItem="9dR-RL-dV6" secondAttribute="top" constant="4" id="xTB-GT-Lxy"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Austin Xu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx0-84-gqH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx0-84-gqH">
                                                 <rect key="frame" x="20" y="75" width="313" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                 <nil key="textColor"/>
@@ -597,7 +597,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tq7-gE-9ob">
-                                <rect key="frame" x="140" y="449" width="113" height="42.333333333333314"/>
+                                <rect key="frame" x="140" y="449" width="113" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
@@ -709,7 +709,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RED-Cl-iBM">
-                                                            <rect key="frame" x="10" y="163" width="373" height="43"/>
+                                                            <rect key="frame" x="10" y="163" width="373" height="34.333333333333343"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="+ Add Meal">
                                                                 <color key="baseBackgroundColor" name="dark_green_card"/>
@@ -811,7 +811,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-jn-ffD">
-                                                            <rect key="frame" x="10" y="142" width="373" height="43"/>
+                                                            <rect key="frame" x="10" y="142" width="373" height="34.333333333333343"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="+ Add Water">
                                                                 <color key="baseBackgroundColor" name="water_blue"/>
@@ -915,7 +915,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONb-rh-Qqg">
-                                <rect key="frame" x="130" y="228" width="133" height="42.333333333333314"/>
+                                <rect key="frame" x="130" y="228" width="133" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>

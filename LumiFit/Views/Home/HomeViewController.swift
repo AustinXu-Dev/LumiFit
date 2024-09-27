@@ -61,7 +61,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let updatedName = UserDefaults.standard.string(forKey: "name") ?? "Man"
+        let updatedName = UserDefaults.standard.string(forKey: "name") ?? "John Doe"
         
         setUpNavigationItemUI(updatedName: updatedName)
     }
@@ -83,40 +83,50 @@ class HomeViewController: UIViewController {
         let startDate = Calendar.current.startOfDay(for: Date())
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictStartDate)
         
-        // Define the queries for steps, exercise, and calories
-        let stepQuery = HKSampleQuery(sampleType: stepType, predicate: predicate, limit: 1, sortDescriptors: nil) { (query, results, error) in
-            guard let results = results as? [HKQuantitySample], let sample = results.first else {
+        // Step count query using HKStatisticsQuery to sum all step samples
+        let stepQuery = HKStatisticsQuery(quantityType: stepType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (query, statistics, error) in
+            guard let sum = statistics?.sumQuantity() else {
                 print("Error fetching steps: \(String(describing: error))")
                 return
             }
             
-            let stepCount = sample.quantity.doubleValue(for: HKUnit.count())
+            let stepCount = sum.doubleValue(for: HKUnit.count())
             DispatchQueue.main.async {
                 self.updateWorkoutProcessData(stepCount: stepCount, exerciseTime: nil, calories: nil)
             }
         }
         
-        let exerciseQuery = HKSampleQuery(sampleType: exerciseType, predicate: predicate, limit: 1, sortDescriptors: nil) { (query, results, error) in
-            guard let results = results as? [HKQuantitySample], let sample = results.first else {
+        // Exercise time query
+        let exerciseQuery = HKSampleQuery(sampleType: exerciseType, predicate: predicate, limit: 0, sortDescriptors: nil) { (query, results, error) in
+            guard let results = results as? [HKQuantitySample] else {
                 print("Error fetching exercise time: \(String(describing: error))")
                 return
             }
             
-            let exerciseMinutes = sample.quantity.doubleValue(for: HKUnit.minute())
+            // Sum all exercise samples for the day
+            let totalExerciseMinutes = results.reduce(0) { sum, sample in
+                return sum + sample.quantity.doubleValue(for: HKUnit.minute())
+            }
+            
             DispatchQueue.main.async {
-                self.updateWorkoutProcessData(stepCount: nil, exerciseTime: exerciseMinutes, calories: nil)
+                self.updateWorkoutProcessData(stepCount: nil, exerciseTime: totalExerciseMinutes, calories: nil)
             }
         }
         
-        let calorieQuery = HKSampleQuery(sampleType: calorieType, predicate: predicate, limit: 1, sortDescriptors: nil) { (query, results, error) in
-            guard let results = results as? [HKQuantitySample], let sample = results.first else {
+        // Calorie query
+        let calorieQuery = HKSampleQuery(sampleType: calorieType, predicate: predicate, limit: 0, sortDescriptors: nil) { (query, results, error) in
+            guard let results = results as? [HKQuantitySample] else {
                 print("Error fetching calories: \(String(describing: error))")
                 return
             }
             
-            let caloriesBurned = sample.quantity.doubleValue(for: HKUnit.kilocalorie())
+            // Sum all calorie samples for the day
+            let totalCaloriesBurned = results.reduce(0) { sum, sample in
+                return sum + sample.quantity.doubleValue(for: HKUnit.kilocalorie())
+            }
+            
             DispatchQueue.main.async {
-                self.updateWorkoutProcessData(stepCount: nil, exerciseTime: nil, calories: caloriesBurned)
+                self.updateWorkoutProcessData(stepCount: nil, exerciseTime: nil, calories: totalCaloriesBurned)
             }
         }
         
@@ -125,6 +135,7 @@ class HomeViewController: UIViewController {
         healthStore.execute(exerciseQuery)
         healthStore.execute(calorieQuery)
     }
+
 
     func updateWorkoutProcessData(stepCount: Double?, exerciseTime: Double?, calories: Double?) {
         if let stepCount = stepCount {
@@ -209,7 +220,7 @@ class HomeViewController: UIViewController {
         dailyActivityCard.configure(image: UIImage(named: "foot_walk")!, title: "Calorie Intake", backgroundColor: UIColor(named: "green_card")!, progress: calorieViewModel.progress)
             
         let workoutsCard = ActivityCardView(frame: CGRect(x: 220, y: 100, width: 150, height: 150))
-        workoutsCard.configure(image: UIImage(named: "bicycle")!, title: "Water Intake", backgroundColor: UIColor(named: "dark_green_card")!, progress:         waterCalViewModel.progress)
+        workoutsCard.configure(image: UIImage(named: "water_drop")!, title: "Water Intake", backgroundColor: UIColor(named: "dark_green_card")!, progress:         waterCalViewModel.progress)
         self.activityView.addArrangedSubview(dailyActivityCard)
         self.activityView.addArrangedSubview(workoutsCard)
         self.activityView.distribution = .equalCentering
@@ -252,7 +263,7 @@ class HomeViewController: UIViewController {
     fileprivate func setupCardData() {
         cardData = [
             ExerciseCardModel(title: "Total Body Yoga - Deep Stretch", duration: "15 min", calories: "346 kcal", image: UIImage(named: "yoga")!, backgroundColor: UIColor(named: "dark_green_card")!),
-            ExerciseCardModel(title: "Weight Loss Exercise Sessions", duration: "30 min", calories: "346 kcal", image: UIImage(named: "water_drop")!, backgroundColor: UIColor(named: "dark_gray_card")!)
+            ExerciseCardModel(title: "Weight Loss Exercise Sessions", duration: "30 min", calories: "346 kcal", image: UIImage(named: "bicycling_exercise")!, backgroundColor: UIColor(named: "dark_gray_card")!)
             // Add more cards as needed
         ]
     }
