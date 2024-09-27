@@ -54,13 +54,7 @@
                                                 <rect key="frame" x="10" y="255.00000000000003" width="373" height="20.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL0-1S-ltN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125.33333333333333" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBV-q6-whk">
-                                                        <rect key="frame" x="315" y="0.0" width="58" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -94,13 +88,7 @@
                                                 <rect key="frame" x="10" y="520.33333333333337" width="373" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Process" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jX-JQ-7MI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="129.33333333333334" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgI-Qg-7xp">
-                                                        <rect key="frame" x="315" y="0.0" width="58" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -687,7 +675,7 @@
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="MVJ-vt-a7W"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" name="green_card"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BnK-zl-nDS">
@@ -695,7 +683,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="6" id="wyr-QM-oXH"/>
                                                                     </constraints>
-                                                                    <color key="progressTintColor" red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="progressTintColor" name="green_card"/>
                                                                 </progressView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="/2,500 Cal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIY-oW-4hu">
                                                                     <rect key="frame" x="55" y="46" width="308" height="21"/>
@@ -724,7 +712,7 @@
                                                             <rect key="frame" x="10" y="163" width="373" height="43"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="+ Add Meal">
-                                                                <color key="baseBackgroundColor" red="0.12941176469999999" green="0.1647058824" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="baseBackgroundColor" name="dark_green_card"/>
                                                             </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="buttonTapped:" destination="R7X-Fr-maN" eventType="touchUpInside" id="t1v-e5-Nhi"/>
@@ -825,7 +813,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-jn-ffD">
                                                             <rect key="frame" x="10" y="142" width="373" height="43"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="filled" title="+ Add Water"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="+ Add Water">
+                                                                <color key="baseBackgroundColor" name="water_blue"/>
+                                                            </buttonConfiguration>
                                                             <connections>
                                                                 <segue destination="6Wb-42-36a" kind="presentation" identifier="water_detail" id="E9l-Cz-9EC"/>
                                                             </connections>
@@ -1144,6 +1134,9 @@
         </namedColor>
         <namedColor name="green_card">
             <color red="0.62352941176470589" green="0.88627450980392153" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="water_blue">
+            <color red="0.035294117647058823" green="0.80000000000000004" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

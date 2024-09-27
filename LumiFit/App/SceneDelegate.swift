@@ -38,33 +38,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
         window?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
     }
-    
-    func checkCalorieAndShowNoti(){
-        if intakeViewModel.calorieViewModel.currentCalories == 0{
-            scheduleCalorieZeroNotification()
-        }
-    }
-    
-    private func scheduleCalorieZeroNotification() {
-        // Create notification content
-        let content = UNMutableNotificationContent()
-        content.title = "No Calories Logged!"
-        content.body = "Your current calorie count is zero. Time to add some food!"
-        content.sound = UNNotificationSound.default
-        
-        // Create the trigger (instant)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        
-        // Create the request
-        let request = UNNotificationRequest(identifier: "calorieZeroNotification", content: content, trigger: trigger)
-        
-        // Schedule the notification
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error.localizedDescription)")
-            }
-        }
-    }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
@@ -94,6 +67,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             intakeViewModel.resetWaterGoal()
             // Update the last reset date to today
             UserDefaults.standard.set(today, forKey: "lastResetDate")
+        }
+    }
+    
+    func checkCalorieAndShowNoti(){
+        if intakeViewModel.calorieViewModel.currentCalories == 0{
+            scheduleCalorieZeroNotification()
+        }
+    }
+    
+    private func scheduleCalorieZeroNotification() {
+        // Create notification content
+        let content = UNMutableNotificationContent()
+        content.title = "No Calories Logged!"
+        content.body = "Your current calorie count is zero. Time to add some food!"
+        content.sound = UNNotificationSound.default
+        
+        // Create the trigger (instant)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        // Create the request
+        let request = UNNotificationRequest(identifier: "calorieZeroNotification", content: content, trigger: trigger)
+        
+        // Schedule the notification
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            }
         }
     }
 

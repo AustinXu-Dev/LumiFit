@@ -23,11 +23,15 @@ class HomeViewController: UIViewController {
         WorkoutProcessModel(title: "Exercise", count: 0, type: "Hours", image: "bicycle_icon"),
         WorkoutProcessModel(title: "Calories", count: 0, type: "Kcal", image: "bowl_icon"),
     ]
-    private var videoData: [URL] = [
-        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step1.mp4")!,
+    private var videoData: [[URL]] = [
+        [URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step1.mp4")!,
         URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step2.mp4")!,
         URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step3.mp4")!,
-        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step4.mp4")!
+         URL(string: "https://dd9dmyh9pfrll.cloudfront.net/step4.mp4")!],
+        [URL(string: "https://dd9dmyh9pfrll.cloudfront.net/bf_step1.mp4")!,
+        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/bf_step2.mp4")!,
+        URL(string: "https://dd9dmyh9pfrll.cloudfront.net/bf_step3.mp4")!,
+         URL(string: "https://dd9dmyh9pfrll.cloudfront.net/bf_step4.mp4")!]
     ]
     
     var calorieViewModel = CalorieViewModel.shared
@@ -42,8 +46,6 @@ class HomeViewController: UIViewController {
         workoutProcessCollectionView.delegate = self
         workoutProcessCollectionView.dataSource = self
 
-        // Create a container view for the custom navigation bar item
-        setUpNavigationItemUI()
         setUpActivityCardUI()
         setupCardData()
         setUpPopularExerciseUI()
@@ -54,6 +56,14 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateProgress), name: .calorieProgressUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateProgress), name: .waterProgressUpdated, object: nil)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let updatedName = UserDefaults.standard.string(forKey: "name") ?? "Man"
+        
+        setUpNavigationItemUI(updatedName: updatedName)
     }
     
     // MARK: - Request HealthKit Authorization
@@ -132,7 +142,7 @@ class HomeViewController: UIViewController {
 
 
     // MARK: - UI Setup Functions
-    fileprivate func setUpNavigationItemUI(){
+    fileprivate func setUpNavigationItemUI(updatedName: String){
         let containerView = UIView()
 
         // Create and configure the profile image view
@@ -148,9 +158,10 @@ class HomeViewController: UIViewController {
 
         // Create and configure the name label
         let nameLabel = UILabel()
-        nameLabel.text = "Austin"  // Replace with the actual user name
-        nameLabel.font = UIFont.italicSystemFont(ofSize: 16)
-        nameLabel.textColor = UIColor.systemBlue
+        nameLabel.text = updatedName
+        let fontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).withSymbolicTraits([.traitBold, .traitItalic])
+        nameLabel.font = UIFont(descriptor: fontDescriptor!, size: 20)
+        nameLabel.textColor = UIColor(named: "dark_gray_card")!
 
         // Add the subviews to the container view
         containerView.addSubview(profileImageView)
@@ -241,7 +252,7 @@ class HomeViewController: UIViewController {
     fileprivate func setupCardData() {
         cardData = [
             ExerciseCardModel(title: "Total Body Yoga - Deep Stretch", duration: "15 min", calories: "346 kcal", image: UIImage(named: "yoga")!, backgroundColor: UIColor(named: "dark_green_card")!),
-            ExerciseCardModel(title: "Weight Loss Exercise Sessions", duration: "30 min", calories: "346 kcal", image: UIImage(named: "bicycling_exercise")!, backgroundColor: UIColor(named: "dark_gray_card")!)
+            ExerciseCardModel(title: "Weight Loss Exercise Sessions", duration: "30 min", calories: "346 kcal", image: UIImage(named: "water_drop")!, backgroundColor: UIColor(named: "dark_gray_card")!)
             // Add more cards as needed
         ]
     }
@@ -274,7 +285,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView{
-            let selectedData = videoData
+            let index = indexPath.row
+            let selectedData = videoData[index]
                     
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let videoVC = storyboard.instantiateViewController(withIdentifier: "videoPlayerVC") as? VideoViewController {
