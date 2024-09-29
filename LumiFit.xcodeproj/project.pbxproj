@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B301B1DC2CA7B3F600C3DE2A /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B301B1DB2CA7B3F600C3DE2A /* Config.plist */; };
 		BC2031842C819A7C008B7E93 /* WaterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2031832C819A7B008B7E93 /* WaterDetailViewController.swift */; };
 		BC393A7C2C78603A00BC0281 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7B2C78603A00BC0281 /* HomeViewController.swift */; };
 		BC393A7E2C78604300BC0281 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC393A7D2C78604300BC0281 /* DietViewController.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B301B1DB2CA7B3F600C3DE2A /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		BC2031832C819A7B008B7E93 /* WaterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDetailViewController.swift; sourceTree = "<group>"; };
 		BC393A7B2C78603A00BC0281 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC393A7D2C78604300BC0281 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
@@ -155,7 +157,6 @@
 			children = (
 				BC6828FF2C7A1F610085A3A5 /* Home */,
 				BC68290E2C7B58E50085A3A5 /* Diet */,
-				BCA420922C855CA400D41DDB /* Record */,
 				BCC489C02C88B817006107A5 /* Profile */,
 				BC70A2622C72E74D0002651E /* Main.storyboard */,
 				BC70A2672C72E7500002651E /* LaunchScreen.storyboard */,
@@ -179,6 +180,7 @@
 		BC68290E2C7B58E50085A3A5 /* Diet */ = {
 			isa = PBXGroup;
 			children = (
+				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
 				BC393A7D2C78604300BC0281 /* DietViewController.swift */,
 				BCD77FE22C808320000A408E /* NutritionTableViewCell.swift */,
 				BCD77FE42C808330000A408E /* WaterTableViewCell.swift */,
@@ -225,16 +227,9 @@
 				BCC8FB852C78B7670096769E /* Utils */,
 				BC70A2652C72E7500002651E /* Assets.xcassets */,
 				BC70A26A2C72E7500002651E /* Info.plist */,
+				B301B1DB2CA7B3F600C3DE2A /* Config.plist */,
 			);
 			path = LumiFit;
-			sourceTree = "<group>";
-		};
-		BCA420922C855CA400D41DDB /* Record */ = {
-			isa = PBXGroup;
-			children = (
-				BC393A7F2C78604C00BC0281 /* RecordViewController.swift */,
-			);
-			path = Record;
 			sourceTree = "<group>";
 		};
 		BCC489C02C88B817006107A5 /* Profile */ = {
@@ -345,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B301B1DC2CA7B3F600C3DE2A /* Config.plist in Resources */,
 				BC70A2662C72E7500002651E /* Assets.xcassets in Resources */,
 				BC70A2692C72E7500002651E /* Base in Resources */,
 				BC70A2642C72E74D0002651E /* Base in Resources */,

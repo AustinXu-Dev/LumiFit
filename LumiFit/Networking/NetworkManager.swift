@@ -13,38 +13,33 @@ class NetworkManager {
     private let headers: HTTPHeaders
 
     init() throws {
-        // Loading API Keys
-        guard let key = ProcessInfo.processInfo.environment["CALORIE_NINJA_API_KEY"] else {
-            throw NSError(domain: "NetworkManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "API Key not found in environment variables"])
+        // Load the API key from the Config.plist file
+        if let path = Bundle.main.path(forResource: "Config", ofType: "plist"),
+           let config = NSDictionary(contentsOfFile: path),
+           let key = config["CalorieNinjaApiKey"] as? String {
+            self.apiKey = key
+        } else {
+            throw NSError(domain: "NetworkManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "API Key not found in Config.plist"])
         }
-        
-        self.apiKey = key
+
         self.headers = ["X-Api-Key": apiKey]
     }
 
     func fetchData(params: String, completion: @escaping (Result<FoodResponse, Error>) -> Void) {
         let url = "https://api.calorieninjas.com/v1/nutrition"
         let parameters: Parameters = ["query": params]
-        print("got params")
-
+        
         AF.request(url, method: .get, parameters: parameters, headers: headers)
             .responseData { response in
                 switch response.result {
                 case .success(let data):
-                    print("got data")
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        print("Raw JSON response: \(jsonString)")
-                    }
-
                     do {
                         let foodResponse = try JSONDecoder().decode(FoodResponse.self, from: data)
                         completion(.success(foodResponse))
                     } catch {
-                        print("Decoding error: \(error)")
                         completion(.failure(error))
                     }
                 case .failure(let error):
-                    print("Network error: \(error)")
                     completion(.failure(error))
                 }
             }

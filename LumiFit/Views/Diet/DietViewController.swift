@@ -67,7 +67,6 @@ class DietViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
 
-
     func exportWaterIntake() {
         let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
         let endDate = Date()

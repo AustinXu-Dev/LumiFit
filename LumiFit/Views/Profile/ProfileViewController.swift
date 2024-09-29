@@ -145,9 +145,13 @@ class ProfileViewController: UIViewController {
             self?.savePersonData(person: person)
             self?.person = person
             
-            // Reload collection view with new data
-            self?.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self?.nameLabel.text = name
+                self?.collectionView.reloadData()
+            }
+
         }
+
         
         alertController.addAction(saveAction)
         present(alertController, animated: true, completion: {

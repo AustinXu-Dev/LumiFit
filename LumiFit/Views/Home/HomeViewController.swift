@@ -49,9 +49,8 @@ class HomeViewController: UIViewController {
         setUpActivityCardUI()
         setupCardData()
         setUpPopularExerciseUI()
-        Task{
-            await requestHealthAuthorization()
-        }
+        
+        fetchLatestHealthData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateProgress), name: .calorieProgressUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateProgress), name: .waterProgressUpdated, object: nil)
@@ -60,7 +59,12 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        Task{
+            await requestHealthAuthorization()
+        }
+        fetchLatestHealthData()
+        collectionView.reloadData()
+        workoutProcessCollectionView.reloadData()
         let updatedName = UserDefaults.standard.string(forKey: "name") ?? "John Doe"
         
         setUpNavigationItemUI(updatedName: updatedName)
@@ -71,7 +75,6 @@ class HomeViewController: UIViewController {
         // Use your HealthKitManager's async authorization request
         await HealthKitManager.shared.requestHealthKitAuthorization()
         // Start observing step count changes after authorization
-        fetchLatestHealthData()
     }
 
     // MARK: - Fetch Health Data
@@ -147,7 +150,7 @@ class HomeViewController: UIViewController {
         if let calories = calories {
             self.workoutProcessData[2].count = calories // Updating calories
         }
-
+        workoutProcessCollectionView.reloadData()
         print("Updated workout process data", workoutProcessData)
     }
 
